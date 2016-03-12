@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta name="description" content="The best social network ever."/>
+  <meta name="keywords" content="html5, responsive, image gallery, masonry, picture, images, sizes, fluid, history api, visibility api social network, fun, girls, friends, content, music, video"/>
+  <meta name="author" content="AliceOJJm"/>
+  <title>Boo</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <script src="../bower_components/jquery/dist/jquery.js"></script>
+  <script src="../bower_components/angular/angular.js"></script>
+  <script src="../bower_components/angular-ui-router/release/angular-ui-router.js"></script>
+  <script src="../bower_components/angular-route/angular-route.js"></script>
+  <script src="../bower_components/angular-bootstrap/ui-bootstrap-tpls.js"></script>
+  <script src="../bower_components/angular-touch/angular-touch.js"></script>
+  <script src="../bower_components/ng-tags-input/ng-tags-input.js"></script>
+  <script src="../bower_components/angular-loading-bar/build/loading-bar.js"></script>
+  <script src="../bower_components/angular-xeditable/dist/js/xeditable.js"></script>
+  <script src="../bower_components/ng-file-upload-shim/ng-file-upload-shim.js"></script>
+  <script src="../bower_components/ng-file-upload/ng-file-upload.js"></script>
+  <script src="../bower_components/Buttons/js/buttons.js"></script>
+  <script src="../bower_components/bootstrap/dist/js/bootstrap.js"></script>
+  <script src="../bower_components/x-editable/dist/bootstrap3-editable/js/bootstrap-editable.js"></script>
+  <script src="../bower_components/angular-devise/lib/devise.js"></script>
+  <script src="../bower_components/jplayer/jplayer/jquery.jplayer.js"></script>
+  <script src="../bower_components/angular-ui-notification/dist/angular-ui-notification.min.js"></script>
+
+  <script src="../javascripts/factories.js"></script>
+  <script src="../javascripts/controllers.js"></script>
+  <script src="../javascripts/angular-bootstrap-lightbox.js"></script>
+
+  <script src="../javascripts/application.js"></script>
+  <link rel="stylesheet" type="text/css" href="../stylesheets/application.css">
+  <base href="/angular_client/templates/">
+</head>
+<body ng-app="boo">
+	<ng-include src="'./navbar.html'"></ng-include>
+	<div class="wrapper">
+	    <div class="full">
+	    	<div class="padding">
+	          <ui-view></ui-view>
+	    	</div>
+	    </div>
+	</div>
+</body>
+</html>
