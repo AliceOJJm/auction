@@ -80,8 +80,8 @@ Rails.application.configure do
     :storage => :s3,
     :s3_credentials => {
       :bucket => 'boo-social',
-      :access_key_id => 'AKIAI7IVFGUEGSRBEDEA',
-      :secret_access_key => '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'
+      :access_key_id => '',
+      :secret_access_key => ''
     }
   }
 end

@@ -35,15 +35,6 @@ Rails.application.configure do
   # Checks for improperly declared sprockets dependencies.
   # Raises helpful error messages.
   config.assets.raise_runtime_errors = true
-
-  config.paperclip_defaults = {
-    :storage => :s3,
-    :s3_credentials => {
-      :bucket => 'boo-social',
-      :access_key_id => 'AKIAI7IVFGUEGSRBEDEA',
-      :secret_access_key => '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'
-    }
-  }
   # Raises error for missing translations
   # config.action_view.raise_on_missing_translations = true
 end

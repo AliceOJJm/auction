@@ -16,3 +16,8 @@ server/spec/tmp
 
 server/config/database.yml
 client/config/database.yml
+
+
+server/config/environments/development.rb
+server/config/environments/production.rb
+server/config/environments/test.rb

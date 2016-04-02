@@ -36,15 +36,6 @@ Rails.application.configure do
 
   # Print deprecation notices to the stderr.
   config.active_support.deprecation = :stderr
-
-  config.paperclip_defaults = {
-    :storage => :s3,
-    :s3_credentials => {
-      :bucket => 'boo-social',
-      :access_key_id => 'AKIAI7IVFGUEGSRBEDEA',
-      :secret_access_key => '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'
-    }
-  }
   # Raises error for missing translations
   # config.action_view.raise_on_missing_translations = true
 end
