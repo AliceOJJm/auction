@@ -2,17 +2,17 @@
 
 ### Rails ###
 
-/client/log
-/client/tmp
-/client/public/system
-/client/coverage/
-/client/spec/tmp
+client/log
+client/tmp
+client/public/system
+client/coverage/
+client/spec/tmp
 
-/server/log
-/server/tmp
-/server/public/system
-/server/coverage/
-/server/spec/tmp
+server/log
+server/tmp
+server/public/system
+server/coverage/
+server/spec/tmp
 
-/server/config/database.yml
-/client/config/database.yml
+server/config/database.yml
+client/config/database.yml

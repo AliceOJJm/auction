@@ -42,17 +42,6 @@ gem 'angular_rails_csrf'
 gem "paperclip"
 gem 'aws-sdk', '< 2.0'
 
-#gem 'sunspot_rails'
-
-gem 'ruby-mp3info', :require => 'mp3info'
-
-gem 'acts_as_commentable_with_threading'
-gem 'acts-as-taggable-on'
-gem 'socialization'
-
-gem 'elasticsearch-model'
-gem 'elasticsearch-rails'
-
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug'
@@ -61,7 +50,6 @@ group :development, :test do
   gem 'capybara'
   gem 'quiet_assets'
   gem 'simplecov'
-  #gem 'sunspot_solr'
   # Access an IRB console on exception pages or by using <%= console %> in views
   gem 'web-console', '~> 2.0'
   gem 'better_errors'

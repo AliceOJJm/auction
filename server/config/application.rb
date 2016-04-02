@@ -20,10 +20,6 @@ module Boo
     # config.i18n.load_path += Dir[Rails.root.join('my', 'locales', '*.{rb,yml}').to_s]
     # config.i18n.default_locale = :de
     config.serve_static_files = true
-    config.less.paths << Rails.root.join('app', 'assets', 'bower_components')
-    config.assets.paths << Rails.root.join('app', 'assets', 'bower_components')
-    #config.assets.initialize_on_precompile = true
-    config.assets.precompile = ['*.js', '*.css', '*.css.erb', '*.eot', '*.svg', '*.ttf', '*.woff', '*.woff2']
     
     config.active_record.raise_in_transactional_callbacks = true
   end

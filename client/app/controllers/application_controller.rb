@@ -16,7 +16,7 @@ class ApplicationController < ActionController::Base
   rescue_from ActionController::InvalidAuthenticityToken do |exception|     
     set_csrf_cookie_for_ng
     message = 'Rails CSRF token error, please try again'     
-    render_with_protection(message.to_json, {:status => :unprocessable_entity}) 
+    render_with_protection(message.to_json, {status: :unprocessable_entity}) 
   end
     
   def render_with_protection(object, parameters = {})
