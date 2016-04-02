@@ -1,0 +1,28 @@
+{:uriI"Úfile:///home/elizaveta/%D0%BA%D1%83%D1%80%D1%81%D0%B0%D1%87/auction/client/app/assets/bower_components/angular-devise/bower.json?type=application/json&id=d181d0a98dd23e7247a9f7c15cb8e78e26dc26ffa6c843f0291bb347dba9799e:ET:load_pathI" app/assets/bower_components;T:filenameI":app/assets/bower_components/angular-devise/bower.json;T:	nameI"angular-devise/bower;T:logical_pathI"angular-devise/bower.json;T:content_typeI"application/json;T:sourceI"x{
+  "name": "AngularDevise",
+  "main": "lib/devise.js",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "components",
+    "bower_components",
+    "spec",
+    "reports"
+  ],
+  "author": {
+      "name": "Justin Ridgewell"
+  },
+  "dependencies": {
+      "angular": "^1.2.0"
+  },
+  "devDependencies": {
+      "angular-mocks": "^1.2.0",
+      "angular-scenario": "^1.2.0"
+  }
+}
+;T:metadata{	:dependencieso:Set:
+@hash{
+I"environment-version;TTI"environment-paths;TTI"rails-env;TTI"@processors:type=application/json&file_type=application/json;TTI"‡file-digest:///home/elizaveta/%D0%BA%D1%83%D1%80%D1%81%D0%B0%D1%87/auction/client/app/assets/bower_components/angular-devise/bower.json;TT:charsetI"
+utf-8;F:digest"%ıC$ïN2x2²¡†&#|9Ò+´[•c·w‡nâÎ:lengthix:dependencies_digest"%üVå••l_ŞQ>å‹æ$†¬×ş>®¨ŒÓÈg:idI"Ed181d0a98dd23e7247a9f7c15cb8e78e26dc26ffa6c843f0291bb347dba9799e;F:
+mtimel+\
+×V

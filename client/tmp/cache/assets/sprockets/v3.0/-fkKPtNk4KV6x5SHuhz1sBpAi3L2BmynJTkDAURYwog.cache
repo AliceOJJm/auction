@@ -1,0 +1,32 @@
+{:uriI"€file:///home/elizaveta/%D0%BA%D1%83%D1%80%D1%81%D0%B0%D1%87/auction/client/app/assets/bower_components/angular-touch/package.json?type=application/json&id=35c51b1cbc73d98b4723a74d5cf5ecdddaac42591f851268f20391d77cb2f38a:ET:load_pathI" app/assets/bower_components;T:filenameI";app/assets/bower_components/angular-touch/package.json;T:	nameI"angular-touch/package;T:logical_pathI"angular-touch/package.json;T:content_typeI"application/json;T:sourceI"}{
+  "name": "angular-touch",
+  "version": "1.4.10",
+  "description": "AngularJS module for touch events and helpers for touch-enabled devices",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/angular/angular.js.git"
+  },
+  "keywords": [
+    "angular",
+    "framework",
+    "browser",
+    "touch",
+    "client-side"
+  ],
+  "author": "Angular Core Team <angular-core+npm@google.com>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/angular/angular.js/issues"
+  },
+  "homepage": "http://angularjs.org"
+}
+;T:metadata{	:dependencieso:Set:
+@hash{
+I"environment-version;TTI"environment-paths;TTI"rails-env;TTI"@processors:type=application/json&file_type=application/json;TTI"àfile-digest:///home/elizaveta/%D0%BA%D1%83%D1%80%D1%81%D0%B0%D1%87/auction/client/app/assets/bower_components/angular-touch/package.json;TT:charsetI"
+utf-8;F:digest"%óqi∞€◊[ï¬[N¯Åﬁ‰ŸÅ˜ïö€”t§)è:lengthi}:dependencies_digest"%+“”Û9uŸôœ
+û7µvÚ*ÂtáCˆ)#ÈØ‹^):idI"E35c51b1cbc73d98b4723a74d5cf5ecdddaac42591f851268f20391d77cb2f38a;F:
+mtimel+Ω∫ÈV

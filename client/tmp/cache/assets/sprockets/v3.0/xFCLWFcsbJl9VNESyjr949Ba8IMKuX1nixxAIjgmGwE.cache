@@ -1,0 +1,29 @@
+{:uriI"›file:///home/elizaveta/%D0%BA%D1%83%D1%80%D1%81%D0%B0%D1%87/auction/client/app/assets/bower_components/angular-ui-router/bower.json?type=application/json&id=a710d22546c32171f143c4e6db89367ab6a8243c070ded12406b4bce5ac20083:ET:load_pathI" app/assets/bower_components;T:filenameI"=app/assets/bower_components/angular-ui-router/bower.json;T:	nameI"angular-ui-router/bower;T:logical_pathI"!angular-ui-router/bower.json;T:content_typeI"application/json;T:sourceI"ò{
+  "name": "angular-ui-router",
+  "version": "0.2.18",
+  "license" : "MIT",
+  "main": "./release/angular-ui-router.js",
+  "dependencies": {
+    "angular": "^1.0.8"
+  },
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "component.json",
+    "package.json",
+    "lib",
+    "config",
+    "sample",
+    "test",
+    "tests",
+    "ngdoc_assets",
+    "Gruntfile.js",
+    "files.js"
+  ]
+}
+;T:metadata{	:dependencieso:Set:
+@hash{
+I"environment-version;TTI"environment-paths;TTI"rails-env;TTI"@processors:type=application/json&file_type=application/json;TTI"äfile-digest:///home/elizaveta/%D0%BA%D1%83%D1%80%D1%81%D0%B0%D1%87/auction/client/app/assets/bower_components/angular-ui-router/bower.json;TT:charsetI"
+utf-8;F:digest"%Ív*ç˙<û(1)KåíÃÆÕ od™†¨îàÌªÙ—LQ:lengthiò:dependencies_digest"%;æ«Aº∏◊π!(¢M‘ÿF‘õîÎpak˚L–πºÈpÙÛ:idI"Ea710d22546c32171f143c4e6db89367ab6a8243c070ded12406b4bce5ac20083;F:
+mtimel+≠'”V

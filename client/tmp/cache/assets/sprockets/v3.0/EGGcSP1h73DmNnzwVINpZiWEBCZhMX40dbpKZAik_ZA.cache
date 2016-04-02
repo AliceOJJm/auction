@@ -1,0 +1,23 @@
+{:uriI"Õfile:///home/elizaveta/%D0%BA%D1%83%D1%80%D1%81%D0%B0%D1%87/auction/client/app/assets/bower_components/Buttons/tests/index.html?type=text/ng-html&id=bd61ce947c1355b11e8e9ff82cf04dca23cca4e7205ad7191794445ce9336429:ET:load_pathI" app/assets/bower_components;T:filenameI"9app/assets/bower_components/Buttons/tests/index.html;T:	nameI"Buttons/tests/index;T:logical_pathI"Buttons/tests/index.html;T:content_typeI"text/ng-html;T:sourceI"<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>QUnit Example</title>
+  <link rel="stylesheet" href="./resources/qunit.css">
+</head>
+<body>
+  <div id="qunit"></div>
+  <div id="qunit-fixture">
+    <span id="testmeout" class="button-dropdown"></span>
+  </div>
+  <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+  <script src="../js/buttons.js"></script>
+  <script src="./resources/qunit.js"></script>
+  <script src="./resources/tests.js"></script>
+</body>
+</html>
+;T:metadata{	:dependencieso:Set:
+@hash{
+I"environment-version;TTI"environment-paths;TTI"rails-env;TTI"8processors:type=text/ng-html&file_type=text/ng-html;TTI"†file-digest:///home/elizaveta/%D0%BA%D1%83%D1%80%D1%81%D0%B0%D1%87/auction/client/app/assets/bower_components/Buttons/tests/index.html;TT:charsetI"
+utf-8;F:digest"%¿Á!ËÈ¬¾¬V¤2ViÓªˆNö!B£{bTvLÈ¨Ğ`*:lengthi:dependencies_digest"%ÔœÜ\İ¸‡A*5Ì×x€ÄÍtSÂ;×òo.©l2:idI"Ebd61ce947c1355b11e8e9ff82cf04dca23cca4e7205ad7191794445ce9336429;F:
+mtimel+ÓËhT

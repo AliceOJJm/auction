@@ -1,0 +1,27 @@
+{:uriI"Ófile:///home/elizaveta/%D0%BA%D1%83%D1%80%D1%81%D0%B0%D1%87/auction/client/app/assets/bower_components/Buttons/bower.json?type=application/json&id=24fd309bcd6ffb6d92e6d49a5a5170c8d6fbe4c07a128a7c3a7213d6bcb4279e:ET:load_pathI" app/assets/bower_components;T:filenameI"3app/assets/bower_components/Buttons/bower.json;T:	nameI"Buttons/bower;T:logical_pathI"Buttons/bower.json;T:content_typeI"application/json;T:sourceI"º{
+  "name": "Buttons",
+  "version": "2.0.0",
+  "homepage": "https://github.com/alexwolfe/Buttons",
+  "authors": [
+    "alexwolfe",
+    "roblevintennis"
+  ],
+  "description": "A fully customizable CSS button library built with Sass",
+  "main": ["./css/buttons.css",
+  		   "./js/buttons.js"
+   ],
+  "keywords": [
+    "buttons",
+    "sass",
+    "scss",
+    "css",
+    "css buttons",
+    "sass buttons"
+  ],
+  "license": "Apache License v2.0"
+}
+;T:metadata{	:dependencieso:Set:
+@hash{
+I"environment-version;TTI"environment-paths;TTI"rails-env;TTI"@processors:type=application/json&file_type=application/json;TTI"€file-digest:///home/elizaveta/%D0%BA%D1%83%D1%80%D1%81%D0%B0%D1%87/auction/client/app/assets/bower_components/Buttons/bower.json;TT:charsetI"
+utf-8;F:digest"%¬v§Ã%Lÿ¦¶È= ‚>]ÌÆÑr}8\YF¬Óï$:lengthiº:dependencies_digest"%}@ñIŒåÚ‘Zž>/F Ô#z4q0qVuœCA:idI"E24fd309bcd6ffb6d92e6d49a5a5170c8d6fbe4c07a128a7c3a7213d6bcb4279e;F:
+mtimel+qu·U

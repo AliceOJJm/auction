@@ -1,0 +1,8 @@
+{:uriI"õfile:///home/elizaveta/%D0%BA%D1%83%D1%80%D1%81%D0%B0%D1%87/auction/client/app/assets/bower_components/angular-ui-notification/src/angular-ui-notification.html?type=text/ng-html&id=fb308c786681a68dd38d18550ddc4f5a68f4d97346acc02bacd019b882616b2f:ET:load_pathI" app/assets/bower_components;T:filenameI"Yapp/assets/bower_components/angular-ui-notification/src/angular-ui-notification.html;T:	nameI"8angular-ui-notification/src/angular-ui-notification;T:logical_pathI"=angular-ui-notification/src/angular-ui-notification.html;T:content_typeI"text/ng-html;T:sourceI"Ž<div class="ui-notification">
+    <h3 ng-show="title" ng-bind-html="title"></h3>
+    <div class="message" ng-bind-html="message"></div>
+</div>;T:metadata{	:dependencieso:Set:
+@hash{
+I"environment-version;TTI"environment-paths;TTI"rails-env;TTI"8processors:type=text/ng-html&file_type=text/ng-html;TTI"¦file-digest:///home/elizaveta/%D0%BA%D1%83%D1%80%D1%81%D0%B0%D1%87/auction/client/app/assets/bower_components/angular-ui-notification/src/angular-ui-notification.html;TT:charsetI"
+utf-8;F:digest"%ßHñ~ëáÐÅSŠ*;Ç¶iÀtç>p¬ô(‘9qÆ:lengthiŽ:dependencies_digest"%q"¢È´còqs ð4zÄ/B¤(ÞaL“XýÀ¾Œé:idI"Efb308c786681a68dd38d18550ddc4f5a68f4d97346acc02bacd019b882616b2f;F:
+mtimel+S×U

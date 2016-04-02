@@ -1,0 +1,29 @@
+{:uriI"ßfile:///home/elizaveta/%D0%BA%D1%83%D1%80%D1%81%D0%B0%D1%87/auction/client/app/assets/bower_components/angular-bootstrap/package.json?type=application/json&id=b2a3f529e7ee533e09c3997c163303a92d900c80609238d539b20172a55c387a:ET:load_pathI" app/assets/bower_components;T:filenameI"?app/assets/bower_components/angular-bootstrap/package.json;T:	nameI"angular-bootstrap/package;T:logical_pathI"#angular-bootstrap/package.json;T:content_typeI"application/json;T:sourceI"]{
+  "name": "angular-ui-bootstrap",
+  "version": "0.13.4",
+  "description": "Bootstrap widgets for Angular",
+  "main": "index.js",
+  "homepage": "http://angular-ui.github.io/bootstrap/",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/angular-ui/bootstrap.git"
+  },
+  "keywords": [
+    "angular",
+    "bootstrap",
+    "angular-ui",
+    "components",
+    "client-side"
+  ],
+  "author": "https://github.com/angular-ui/bootstrap/graphs/contributors",
+  "peerDependencies": {
+    "angular": "^1.3.x || >= 1.4.0-beta.0 || >= 1.5.0-beta.0",
+    "bootstrap": "^3.x"
+  },
+  "license": "MIT"
+}
+;T:metadata{	:dependencieso:Set:
+@hash{
+I"environment-version;TTI"environment-paths;TTI"rails-env;TTI"@processors:type=application/json&file_type=application/json;TTI"Œfile-digest:///home/elizaveta/%D0%BA%D1%83%D1%80%D1%81%D0%B0%D1%87/auction/client/app/assets/bower_components/angular-bootstrap/package.json;TT:charsetI"
+utf-8;F:digest"%·uR»ÖúájÚŒvÇWĞx®(–‘ƒ9˜o¼0˜:lengthi]:dependencies_digest"%ñûş-Ø›oÎİØ›B<Uït‘×±+ŒoèÅ2uU_¢ÿà:idI"Eb2a3f529e7ee533e09c3997c163303a92d900c80609238d539b20172a55c387a;F:
+mtimel+TVèU

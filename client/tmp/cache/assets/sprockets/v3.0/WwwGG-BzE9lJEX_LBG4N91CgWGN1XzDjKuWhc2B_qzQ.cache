@@ -1,0 +1,45 @@
+{:uriI"Üfile:///home/elizaveta/%D0%BA%D1%83%D1%80%D1%81%D0%B0%D1%87/auction/client/app/assets/bower_components/angular-devise/package.json?type=application/json&id=ed75b3c8aa3c4e9f49d18cf91822e3a55b78c678e9b11c66eb844fdbcbf15619:ET:load_pathI" app/assets/bower_components;T:filenameI"<app/assets/bower_components/angular-devise/package.json;T:	nameI"angular-devise/package;T:logical_pathI" angular-devise/package.json;T:content_typeI"application/json;T:sourceI"i{
+    "name": "AngularDevise",
+    "version": "1.3.0",
+    "description": "A small AngularJS Service to interact with Devise Authentication.",
+    "main": "lib/devise.js",
+    "scripts": {
+        "test": "grunt test"
+    },
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/cloudspace/angular_devise.git"
+    },
+    "keywords": [
+        "Angular",
+        "AngularJS",
+        "Devise"
+    ],
+    "author": "Justin Ridgewell",
+    "license": "MIT",
+    "bugs": {
+        "url": "https://github.com/cloudspace/angular_devise/issues"
+    },
+    "dependencies": {},
+    "devDependencies": {
+        "grunt": "~0.4.1",
+        "grunt-contrib-jshint": "~0.6.2",
+        "grunt-contrib-uglify": "~0.2.2",
+        "grunt-karma": "~0.12.1",
+        "grunt-ng-annotate": "~0.5.0",
+        "grunt-plato": "~0.2.1",
+        "grunt-preprocess": "~2.3.0",
+        "jasmine": "^2.4.1",
+        "karma": "^0.13.21",
+        "karma-jasmine": "^0.3.7",
+        "karma-phantomjs-launcher": "^1.0.0",
+        "load-grunt-tasks": "~0.2.0",
+        "phantomjs-prebuilt": "^2.1.4",
+        "time-grunt": "~0.2.1"
+    }
+}
+;T:metadata{	:dependencieso:Set:
+@hash{
+I"environment-version;TTI"environment-paths;TTI"rails-env;TTI"@processors:type=application/json&file_type=application/json;TTI"‰file-digest:///home/elizaveta/%D0%BA%D1%83%D1%80%D1%81%D0%B0%D1%87/auction/client/app/assets/bower_components/angular-devise/package.json;TT:charsetI"
+utf-8;F:digest"%PoŸú{¿öò„lWÓäP‰qwý¥u¼3³Óý²:lengthii:dependencies_digest"%,»(Šþ°ì‹sB&§ÜLÃÍy>]ùÎø#Ež|:idI"Eed75b3c8aa3c4e9f49d18cf91822e3a55b78c678e9b11c66eb844fdbcbf15619;F:
+mtimel+ËíV

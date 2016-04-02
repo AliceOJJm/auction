@@ -1,0 +1,15 @@
+{:uriI"Ÿfile:///home/elizaveta/%D0%BA%D1%83%D1%80%D1%81%D0%B0%D1%87/auction/client/app/assets/bower_components/angular-route/bower.json?type=application/json&id=66e8942518cce622be565122703c1cb2b6411e11e8fd2fc6b207db2875740af7:ET:load_pathI" app/assets/bower_components;T:filenameI"9app/assets/bower_components/angular-route/bower.json;T:	nameI"angular-route/bower;T:logical_pathI"angular-route/bower.json;T:content_typeI"application/json;T:sourceI"®{
+  "name": "angular-route",
+  "version": "1.5.3",
+  "license": "MIT",
+  "main": "./angular-route.js",
+  "ignore": [],
+  "dependencies": {
+    "angular": "1.5.3"
+  }
+}
+;T:metadata{	:dependencieso:Set:
+@hash{
+I"environment-version;TTI"environment-paths;TTI"rails-env;TTI"@processors:type=application/json&file_type=application/json;TTI"Üfile-digest:///home/elizaveta/%D0%BA%D1%83%D1%80%D1%81%D0%B0%D1%87/auction/client/app/assets/bower_components/angular-route/bower.json;TT:charsetI"
+utf-8;F:digest"%I?Ruü≠yÌ°+,e,ΩÒè3ºv¨l±ïgœºÚ:lengthi®:dependencies_digest"%3=õQûÙ]c√›S^7d∫s2g§œ∆z!?öÆ°‹ﬂ:idI"E66e8942518cce622be565122703c1cb2b6411e11e8fd2fc6b207db2875740af7;F:
+mtimel+°ıV

@@ -1,0 +1,26 @@
+{:uriI"Öfile:///home/elizaveta/%D0%BA%D1%83%D1%80%D1%81%D0%B0%D1%87/auction/client/app/assets/bower_components/x-editable/bower.json?type=application/json&id=15404d4cd8ebd555bddfd8e686ee31a58c5554bcd5a278b06fa243a0f4fe3726:ET:load_pathI" app/assets/bower_components;T:filenameI"6app/assets/bower_components/x-editable/bower.json;T:	nameI"x-editable/bower;T:logical_pathI"x-editable/bower.json;T:content_typeI"application/json;T:sourceI"À{
+  "name": "x-editable",
+  "version": "1.5.1",
+  "ignore": [
+    "CHANGELOG.txt",
+    "Gruntfile.js",
+    "LICENSE-MIT",
+    "Package.nuspec",
+    "README.md",
+    "composer.json",
+    "package.json",
+    "node_modules",
+    "components",
+    "src",
+    "test"
+  ],
+  "main": ["./dist/bootstrap3-editable/js/bootstrap-editable.js",
+  		   "./dist/bootstrap3-editable/css/bootstrap-editable.css"],
+  "dependencies": {
+    "jquery": ">=1.6"
+  }   
+};T:metadata{	:dependencieso:Set:
+@hash{
+I"environment-version;TTI"environment-paths;TTI"rails-env;TTI"@processors:type=application/json&file_type=application/json;TTI"ƒfile-digest:///home/elizaveta/%D0%BA%D1%83%D1%80%D1%81%D0%B0%D1%87/auction/client/app/assets/bower_components/x-editable/bower.json;TT:charsetI"
+utf-8;F:digest"%‹•=pnÇËo×Ã$æÝâjß*œ~&Ély·ŒŠ_:lengthiÀ:dependencies_digest"%¼ÉƒôGi[È˜¾‘¸Qçƒ<MjÑ´¥Xku£:idI"E15404d4cd8ebd555bddfd8e686ee31a58c5554bcd5a278b06fa243a0f4fe3726;F:
+mtimel+³ÇU

@@ -1,0 +1,31 @@
+{:uriI"Ûfile:///home/elizaveta/%D0%BA%D1%83%D1%80%D1%81%D0%B0%D1%87/auction/client/app/assets/bower_components/angular-route/package.json?type=application/json&id=59e22b55d7ddc483e5a2bb9561f23fcfad43e849f96f2453e4041c726d1e4462:ET:load_pathI" app/assets/bower_components;T:filenameI";app/assets/bower_components/angular-route/package.json;T:	nameI"angular-route/package;T:logical_pathI"angular-route/package.json;T:content_typeI"application/json;T:sourceI"M{
+  "name": "angular-route",
+  "version": "1.5.3",
+  "description": "AngularJS router module",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/angular/angular.js.git"
+  },
+  "keywords": [
+    "angular",
+    "framework",
+    "browser",
+    "router",
+    "client-side"
+  ],
+  "author": "Angular Core Team <angular-core+npm@google.com>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/angular/angular.js/issues"
+  },
+  "homepage": "http://angularjs.org"
+}
+;T:metadata{	:dependencieso:Set:
+@hash{
+I"environment-version;TTI"environment-paths;TTI"rails-env;TTI"@processors:type=application/json&file_type=application/json;TTI"ˆfile-digest:///home/elizaveta/%D0%BA%D1%83%D1%80%D1%81%D0%B0%D1%87/auction/client/app/assets/bower_components/angular-route/package.json;TT:charsetI"
+utf-8;F:digest"%ıïÒªG+v4zeÍ¼€¿2øÛÂ›J~&$Ç¤[ùèR÷:lengthiM:dependencies_digest"%›FFxQ§²;76B`´ö‘Œ‘,Á¦Ø²wÜÖ:idI"E59e22b55d7ddc483e5a2bb9561f23fcfad43e849f96f2453e4041c726d1e4462;F:
+mtimel+¡õV

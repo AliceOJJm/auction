@@ -1,0 +1,37 @@
+{:uriI"Ýfile:///home/elizaveta/%D0%BA%D1%83%D1%80%D1%81%D0%B0%D1%87/auction/client/app/assets/bower_components/angular-xeditable/bower.json?type=application/json&id=faf3a57a5e650527ef1c2824a1d10aa109685aa1d1cfde0e7778b3a2cb474899:ET:load_pathI" app/assets/bower_components;T:filenameI"=app/assets/bower_components/angular-xeditable/bower.json;T:	nameI"angular-xeditable/bower;T:logical_pathI"!angular-xeditable/bower.json;T:content_typeI"application/json;T:sourceI"p{
+  "name": "angular-xeditable",
+  "version": "0.1.10",
+  "description": "Edit in place for AngularJS",
+  "author": "https://github.com/vitalets",
+  "license": "MIT",
+  "homepage": "http://vitalets.github.io/angular-xeditable",
+  "main": [
+    "dist/css/xeditable.css",
+    "dist/js/xeditable.js"
+  ],
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "playground",
+    "test",
+    "libs",
+    "docs",
+    "zip",
+    "src",
+    "starter",
+    "Gruntfile.js",
+    "index.html",
+    "jsdoc.conf.json",
+    "package.json"
+  ],
+  "dependencies": {
+    "angular": "~1.x"
+  },
+  "devDependencies": {
+  }
+};T:metadata{	:dependencieso:Set:
+@hash{
+I"environment-version;TTI"environment-paths;TTI"rails-env;TTI"@processors:type=application/json&file_type=application/json;TTI"Šfile-digest:///home/elizaveta/%D0%BA%D1%83%D1%80%D1%81%D0%B0%D1%87/auction/client/app/assets/bower_components/angular-xeditable/bower.json;TT:charsetI"
+utf-8;F:digest"%ÚøöšQìßj€‹Kš·#¤RYp<ˆ–ÚYïüÆ":lengthip:dependencies_digest"%‹ì{?u]›UŒ2¾™EÖ¢"¯ø…ïq'•‡=:idI"Efaf3a57a5e650527ef1c2824a1d10aa109685aa1d1cfde0e7778b3a2cb474899;F:
+mtimel+ÄóV

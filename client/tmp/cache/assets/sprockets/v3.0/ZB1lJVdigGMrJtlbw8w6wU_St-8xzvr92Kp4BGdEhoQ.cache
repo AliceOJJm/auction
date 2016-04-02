@@ -1,0 +1,18 @@
+{:uriI"Òfile:///home/elizaveta/%D0%BA%D1%83%D1%80%D1%81%D0%B0%D1%87/auction/client/app/assets/bower_components/jquery/bower.json?type=application/json&id=67296d26341ebc82467d954230395bf24f71210a838406be76514630c2b41220:ET:load_pathI" app/assets/bower_components;T:filenameI"2app/assets/bower_components/jquery/bower.json;T:	nameI"jquery/bower;T:logical_pathI"jquery/bower.json;T:content_typeI"application/json;T:sourceI"¾{
+  "name": "jquery",
+  "main": "dist/jquery.js",
+  "license": "MIT",
+  "ignore": [
+    "package.json"
+  ],
+  "keywords": [
+    "jquery",
+    "javascript",
+    "browser",
+    "library"
+  ]
+};T:metadata{	:dependencieso:Set:
+@hash{
+I"environment-version;TTI"environment-paths;TTI"rails-env;TTI"@processors:type=application/json&file_type=application/json;TTI"file-digest:///home/elizaveta/%D0%BA%D1%83%D1%80%D1%81%D0%B0%D1%87/auction/client/app/assets/bower_components/jquery/bower.json;TT:charsetI"
+utf-8;F:digest"%€ã‰Žé34{Ÿš„ÃÙ]7{?<ÆD#ù¥M÷ÓÆÔZj­Z:lengthi¾:dependencies_digest"%·ÿƒ‰?óL¤Aü–ŸH‡Ù%`Í7Œ@z-†Ù¿I”:idI"E67296d26341ebc82467d954230395bf24f71210a838406be76514630c2b41220;F:
+mtimel+ÕîêV
