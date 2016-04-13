@@ -11,6 +11,9 @@ angular.module('boo-controllers').controller('UserpageCtrl', [
 function($scope, Auth, Upload, Notification, Lightbox, users, posts, audio, videos, comments, mail){
   Auth.currentUser().then(function (user){
   	$scope.current_user = user.user;
+    $scope.$watch('avatar', function () {
+      $scope.uploadAvatar($scope.avatar, $scope.current_user.id);
+    });
   });
     
   $scope.openLightboxModal = function (index) {
@@ -55,34 +58,31 @@ function($scope, Auth, Upload, Notification, Lightbox, users, posts, audio, vide
 		});
 	};
 	
-	$scope.$watch('avatar', function () {
-        $scope.uploadAvatar($scope.avatar, $scope.current_user.id);
-    });
-    $scope.uploadAvatar = function(files, user_id){
-  	if (files && files.length) {
-        for (var i = 0; i < files.length; i++) {
-            var file = files[i];
-            Upload.upload({
-		        url: window.host + '/users/' + user_id + '.json',
-		        method: 'PUT',
-		        fields: {user_id: user_id},
-		        file: file,
-		        fileFormDataName: 'picture[file]',
-		        formDataAppender: function(fd, key, val) {
-		            if (angular.isArray(val)) {
-		                angular.forEach(val, function(v) {
-		                    fd.append('picture['+key+']', v);
-		                });
-		            } else {
-		                fd.append('picture['+key+']', val);
-		            }
-		        }
-		      }).progress(function (evt) {
-                $scope.avatar.progress = parseInt(100.0 * evt.loaded / evt.total);
-            }).success(function (data) {
-            	$scope.user.user.avatar_url = data.avatar;
-            });
-        }
+  $scope.uploadAvatar = function(files, user_id){
+	 if (files && files.length) {
+      for (var i = 0; i < files.length; i++) {
+          var file = files[i];
+          Upload.upload({
+	        url: window.host + '/users/' + user_id + '.json',
+	        method: 'PUT',
+	        fields: {user_id: user_id},
+	        file: file,
+	        fileFormDataName: 'picture[file]',
+	        formDataAppender: function(fd, key, val) {
+	            if (angular.isArray(val)) {
+	                angular.forEach(val, function(v) {
+	                    fd.append('picture['+key+']', v);
+	                });
+	            } else {
+	                fd.append('picture['+key+']', val);
+	            }
+	        }
+	      }).progress(function (evt) {
+              $scope.avatar.progress = parseInt(100.0 * evt.loaded / evt.total);
+          }).success(function (data) {
+          	$scope.user.user.avatar_url = data.avatar;
+          });
+      }
     }
   };
   
