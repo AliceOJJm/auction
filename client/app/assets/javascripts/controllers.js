@@ -9,11 +9,11 @@ angular.module('boo-controllers').controller('UserpageCtrl', [
 'comments',
 'mail',
 function($scope, Auth, Upload, Notification, Lightbox, users, posts, audio, videos, comments, mail){
-	Auth.currentUser().then(function (user){
-    	$scope.current_user = user.user;
-    });
+  Auth.currentUser().then(function (user){
+  	$scope.current_user = user.user;
+  });
     
-    $scope.openLightboxModal = function (index) {
+  $scope.openLightboxModal = function (index) {
 	  Lightbox.openModal($scope.last_pictures, index);
 	};
 	
@@ -250,50 +250,48 @@ function($scope, Auth, videos, Upload, tags, comments, likes){
 angular.module('boo-controllers').controller('PicturesCtrl', [
 '$scope', 'Auth', 'Upload', 'pictures', 'Lightbox',
 function($scope, Auth, Upload, pictures, Lightbox){
+  Auth.currentUser().then(function (user){
+    $scope.user = user.user;
+    $scope.$watch('files', function () {
+      $scope.uploadPictures($scope.files, $scope.user.id);
+    }); 
+  });
 	
 	$scope.openLightboxModal = function (index) {
 	  Lightbox.openModal($scope.pictures, index);
 	};
 	  
-    $scope.pictures = pictures.pictures;
+  $scope.pictures = pictures.pictures;
 	$scope.user_id = pictures.user_id;
-    
-	Auth.currentUser().then(function (user){
-	  $scope.user = user.user;
-	});
 	
 	$scope.deletePicture = pictures.deletePicture;
-	
-	$scope.$watch('files', function () {
-        $scope.uploadPictures($scope.files, $scope.user.id);
-    });
-    
-    $scope.uploadPictures = function(files, user_id){
-  	if (files && files.length) {
-        for (var i = 0; i < files.length; i++) {
-            var file = files[i];
-            Upload.upload({
-		        url: window.host + '/users/' + user_id + '/pictures.json',
-		        method: 'POST',
-		        file: file,
-		        fields: { 'user_id': user_id },
-		        fileFormDataName: 'picture[file]',
-		        formDataAppender: function(fd, key, val) {
-		            if (angular.isArray(val)) {
-		                angular.forEach(val, function(v) {
-		                    fd.append('picture['+key+']', v);
-		                });
-		            } else {
-		                fd.append('picture['+key+']', val);
-		            }
-		        }
-		      }).progress(function (evt) {
-                file.progress = parseInt(100.0 * evt.loaded / evt.total);
-            }).success(function (data) {
-            	pictures.addPicture({picture: {picture: data.picture}});
-    			$scope.files.shift();
-            });
-        }
+ 
+  $scope.uploadPictures = function(files, user_id){
+	  if (files && files.length) {
+      for (var i = 0; i < files.length; i++) {
+          var file = files[i];
+          Upload.upload({
+	        url: window.host + '/users/' + user_id + '/pictures.json',
+	        method: 'POST',
+	        file: file,
+	        fields: { 'user_id': user_id },
+	        fileFormDataName: 'picture[file]',
+	        formDataAppender: function(fd, key, val) {
+	            if (angular.isArray(val)) {
+	                angular.forEach(val, function(v) {
+	                    fd.append('picture['+key+']', v);
+	                });
+	            } else {
+	                fd.append('picture['+key+']', val);
+	            }
+	        }
+	      }).progress(function (evt) {
+              file.progress = parseInt(100.0 * evt.loaded / evt.total);
+          }).success(function (data) {
+          	pictures.addPicture({picture: {picture: data.picture}});
+  			    $scope.files.shift();
+          });
+      }
     }
   };
   
@@ -411,8 +409,8 @@ function($scope, $rootScope, $state, Auth, search, videos){
 	};
 	
 	$rootScope.$watch('results', function () {
-        $scope.myPlaylist.setPlaylist(getPlaylist());
-    });
+    $scope.myPlaylist.setPlaylist(getPlaylist());
+  });
 
 	Auth.currentUser().then(function (user){
 	    $scope.user = user.user;
@@ -483,44 +481,44 @@ function($scope, Auth, audio, Upload){
 	}
 	    
 	$scope.$watch('files', function () {
-        $scope.uploadSongs($scope.files);
-    });
-    
-    $scope.updateSong = audio.updateSong;
-	
-    $scope.uploadSongs = function(files){
-  	if (files && files.length) {
-        for (var i = 0; i < files.length; i++) {
-            var file = files[i];
-            Upload.upload({
-		        url: window.host + '/songs.json',
-		        method: 'POST',
-		        file: file,
-		        fileFormDataName: 'song[file]',
-		        formDataAppender: function(fd, key, val) {
-		            if (angular.isArray(val)) {
-		                angular.forEach(val, function(v) {
-		                    fd.append('song['+key+']', v);
-		                });
-		            } else {
-		                fd.append('song['+key+']', val);
-		            }
-		        }
-		      }).progress(function (evt) {
-                file.progress = parseInt(100.0 * evt.loaded / evt.total);
-            }).success(function (data) {
-            	audio.addSong({song: data.song});
-            	var tempPlaylistItems = $scope.myPlaylist.playlist;
-            	tempPlaylistItems.unshift({title: data.song.title, 
-            						       artist: data.song.performer, 
-            						       mp3: data.song.url, 
-				            			   likes: 0,
-            						       id: data.song.id,
-            						       url: window.host + '/songs/' + data.song.id + '.json'});
-				$scope.myPlaylist.setPlaylist(tempPlaylistItems);
-    			$scope.files.shift();
-            });
-        }
+    $scope.uploadSongs($scope.files);
+  });
+  
+  $scope.updateSong = audio.updateSong;
+
+  $scope.uploadSongs = function(files){
+	  if (files && files.length) {
+      for (var i = 0; i < files.length; i++) {
+          var file = files[i];
+          Upload.upload({
+	        url: window.host + '/songs.json',
+	        method: 'POST',
+	        file: file,
+	        fileFormDataName: 'song[file]',
+	        formDataAppender: function(fd, key, val) {
+	            if (angular.isArray(val)) {
+	                angular.forEach(val, function(v) {
+	                    fd.append('song['+key+']', v);
+	                });
+	            } else {
+	                fd.append('song['+key+']', val);
+	            }
+	        }
+	      }).progress(function (evt) {
+              file.progress = parseInt(100.0 * evt.loaded / evt.total);
+          }).success(function (data) {
+          	audio.addSong({song: data.song});
+          	var tempPlaylistItems = $scope.myPlaylist.playlist;
+          	tempPlaylistItems.unshift({title: data.song.title, 
+          						       artist: data.song.performer, 
+          						       mp3: data.song.url, 
+			            			   likes: 0,
+          						       id: data.song.id,
+          						       url: window.host + '/songs/' + data.song.id + '.json'});
+			$scope.myPlaylist.setPlaylist(tempPlaylistItems);
+  			$scope.files.shift();
+          });
+      }
     }
   };
 }]);
@@ -549,7 +547,7 @@ function($scope, $state, Auth){
 	    }, function(error) {
 	      $scope.errors = error.data.errors;
 	    });
-	}
+	  }
   };
 }]);
 
@@ -560,8 +558,8 @@ angular.module('boo-controllers').controller('CommunitiesCtrl', [
 'Auth',
 function($scope, communities, $state, Auth){
   Auth.currentUser().then(function (user){
-    	$scope.current_user = user.user;
-    });
+  	$scope.current_user = user.user;
+  });
   $scope.signedIn = Auth.isAuthenticated;
   $scope.communities = communities.all;
   $scope.createCommunity = function(){
@@ -579,8 +577,8 @@ angular.module('boo-controllers').controller('CommunityCtrl', [
 'Auth',
 function($scope, communities, Notification, $state, Auth){
   Auth.currentUser().then(function (user){
-    	$scope.current_user = user;
-    });
+  	$scope.current_user = user;
+  });
   $scope.signedIn = Auth.isAuthenticated;
   $scope.community = communities.current;
   $scope.join = function(){

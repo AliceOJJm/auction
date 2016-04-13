@@ -150,10 +150,10 @@ function($stateProvider, $urlRouterProvider, $locationProvider) {
 	        controller: 'EditCtrl',
 	        resolve: {
 	          postPromise: ['Auth', 'users', function(Auth, users) {
-			  	Auth.currentUser().then(function (user){},
-				  	function(error) {
-			          $state.go('login');
-			        }
+			  	Auth.currentUser().then(function (user){
+          },function(error) {
+		          $state.go('login');
+		        }
 			    );
 			  }]
 			}
@@ -255,7 +255,7 @@ function($stateProvider, $urlRouterProvider, $locationProvider) {
       templateUrl: 'login.html',
       controller: 'AuthCtrl',
       onEnter: ['$state', 'Auth', function($state, Auth) {
-        Auth.currentUser().then(function (){
+        Auth.currentUser().then(function (user){
           $state.go('home');
         });
       }]
@@ -265,7 +265,7 @@ function($stateProvider, $urlRouterProvider, $locationProvider) {
       templateUrl: 'register.html',
       controller: 'AuthCtrl',
       onEnter: ['$state', 'Auth', function($state, Auth) {
-        Auth.currentUser().then(function (){
+        Auth.currentUser().then(function (user){
           $state.go('home');
         });
       }]
@@ -308,7 +308,7 @@ angular.module('boo').config(function($httpProvider){
          	$location.path('/login');
         }
         $httpProvider.defaults.headers.common['X-CSRF-Token'] = getCookie("XSRF-TOKEN");
-		return $q.reject(rejection);     
+		    return $q.reject(rejection);     
       }
     };
   };

@@ -10,6 +10,7 @@ function($http){
     new_subscribers: [],
     userpage_media: {}
   };
+
   o.getUser = function(id){
   	return $http.get(window.host + '/users/' + id + '.json').success(function(res){
       angular.copy(res, o.user);
