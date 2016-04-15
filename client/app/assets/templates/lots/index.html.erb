@@ -1,10 +1,13 @@
 <div class="well">
-    <form class="form-horizontal" role="form" ng-submit="createLot()">
-        <h4>Community title</h4>
+    <form class="form-horizontal" role="form" ng-show="signedIn()" ng-submit="createLot()">
+        <h4>Lot title</h4>
         <div class="form-group" style="padding:14px;">
             <input class="form-control" type="text" ng-model="title" required></input>
         </div>
-        <textarea ng-model="description"></textarea>
+        <h5>Lot description</h5>
+        <div>
+            <textarea ng-model="description"></textarea>
+        </div>
         <button class="btn btn-primary pull-right" type="submit">Create!</button>
         <br>
     </form>
