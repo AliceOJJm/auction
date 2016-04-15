@@ -269,7 +269,17 @@ function($stateProvider, $urlRouterProvider, $locationProvider) {
           $state.go('home');
         });
       }]
-    });
+    })
+	.state('lots', {
+	  url: '/lots',
+	  templateUrl: 'lots/index.html',
+	  controller: 'LotsCtrl',
+	  resolve: {
+		  postPromise: ['lots', function(lots) {
+			  return lots.getAll();
+		  }]
+	  }
+	});
 }]);
 
 angular.module('boo').directive('userPanel', function() { 

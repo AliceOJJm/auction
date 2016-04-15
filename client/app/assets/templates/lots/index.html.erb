@@ -1,0 +1,19 @@
+<div class="well" ng-show="showForm">
+    <form class="form-horizontal" role="form" ng-submit="createLot()">
+        <h4>Community title</h4>
+        <div class="form-group" style="padding:14px;">
+            <input class="form-control" type="text" ng-model="title" required></input>
+        </div>
+        <textarea ng-model="description"></textarea>
+        <button class="btn btn-primary pull-right" type="submit">Create!</button>
+        <br>
+    </form>
+</div>
+<!-- 
+<div ng-repeat="lot in lots">
+    <a ng-href="/lots/{{lot.id}}">
+        {{lot.title}}
+        {{lot.description}}
+    </a>
+</div>
+-->
