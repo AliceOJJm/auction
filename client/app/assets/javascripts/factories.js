@@ -472,3 +472,30 @@ function($http){
   
   return o;
 }]);
+
+angular.module('boo-factories').factory('lots', ['$http',
+	function($http){
+		var o = {
+			all: []
+		};
+
+		o.getAll = function() {
+			return $http.get(window.host + '/communities.json').success(function(res){
+				angular.copy(res, o.all);
+			});
+		};
+
+		o.get = function(id) {
+			return $http.get(window.host + '/lots/' + id + '.json').success(function(res){
+				angular.copy(res, o.current);
+			});
+		};
+
+		o.create = function(lot, callback) {
+			return $http.post(window.host + '/lots.json', lot).success(function(res){
+				callback(res.id);
+			});
+		};
+
+		return o;
+	}]);

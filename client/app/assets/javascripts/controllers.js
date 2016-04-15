@@ -94,7 +94,6 @@ function($scope, Auth, Upload, Notification, Lightbox, users, posts, audio, vide
   };
 }]);
 
-
 angular.module('boo-controllers').controller('PostCtrl', [
 '$scope', 'Auth', 'Upload', 'users', 'posts', 'audio', 'videos', 'comments', 'likes', 'tags',
 function($scope, Auth, Upload, users, posts, audio, videos, comments, likes, tags){	
@@ -127,10 +126,6 @@ function($scope, Auth, Upload, users, posts, audio, videos, comments, likes, tag
 	};
 }]);
 
-
-
-
-
 angular.module('boo-controllers').controller('EditCtrl', [
 '$scope', 'Auth', 
 'users',
@@ -140,7 +135,6 @@ function($scope, Auth, users){
     });
     $scope.updateUser = users.updateUser;
 }]);
-
 
 angular.module('boo-controllers').controller('HomeCtrl', [
 '$scope', 'Auth',
@@ -297,7 +291,6 @@ function($scope, Auth, Upload, pictures, Lightbox){
   
 }]);
 
-
 angular.module('boo-controllers').controller('FriendsCtrl', [
 '$scope',
 'users',
@@ -318,7 +311,6 @@ function($scope, users, Auth){
 	$scope.markReqViewed = users.markReqViewed;
 	$scope.addFriend = users.addFriend;
 }]);
-
 
 angular.module('boo-controllers').controller('NavCtrl', [
 '$scope',
@@ -551,7 +543,6 @@ function($scope, $state, Auth){
   };
 }]);
 
-
 angular.module('boo-controllers').controller('CommunitiesCtrl', [
 '$scope', 'communities',
 '$state',
@@ -569,7 +560,6 @@ function($scope, communities, $state, Auth){
   	});
   };
 }]);
-
 
 angular.module('boo-controllers').controller('CommunityCtrl', [
 '$scope', 'communities', 'Notification',
@@ -591,3 +581,15 @@ function($scope, communities, Notification, $state, Auth){
   };
   
 }]);
+
+angular.module('boo-controllers').controller('LotsCtrl', [
+	'$scope', 'lots',
+	'$state',
+	'Auth',
+	function($scope, lots, $state, Auth){
+		Auth.currentUser().then(function (user){
+			$scope.current_user = user.user;
+		});
+		$scope.signedIn = Auth.isAuthenticated;
+		$scope.lots = lots.lots;
+	}]);
