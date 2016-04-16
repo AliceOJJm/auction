@@ -473,6 +473,7 @@ function($scope, Auth, audio, Upload){
 	}
 	    
 	$scope.$watch('files', function () {
+    alert(Object.keys($scope.files[0]));
     $scope.uploadSongs($scope.files);
   });
   

@@ -1,19 +1,22 @@
 <div ng-show="user.id == user_id">
-    <div class="button center_button" ngf-select ng-model="files">Upload song</div>
+    <div class="button center_button" ngf-select ng-model="files" ngf-keep='true'>Upload song</div>
     <h5 align="center">or</h5>
-    <div ngf-drop ng-model="files" class="drop-box" 
+    <div ngf-drop ng-model="files" class="drop-box" ngf-keep='true'
          ngf-drag-over-class="dragover" ngf-multiple="true" ngf-allow-dir="true"
          ngf-accept="'audio/*'"><h4>Drop songs here</h4>
     </div>
     <div ngf-no-file-drop>File Drag/Drop is not supported for this browser</div>
 </div>
+<br>
 <div ng-show="files[0]" class="center">    
 	<div ng-repeat="file in files">
 		<audio controls ngf-src="file" ngf-accept="'audio/*'"></audio>
-		<div class="progress progr" style="width: 29%" class="center">
-		  <div class="progress-bar progress-bar-striped active" role="progressbar" aria-valuenow="45" aria-valuemin="0" aria-valuemax="100" style="width: {{file.progress}}%">
-		    <span class="sr-only">{{file.progress}}</span>
-		  </div>
+		<div style="width: 29%" class="center">
+			<div class="progress progr">
+			  <div class="progress-bar progress-bar-striped active" role="progressbar" aria-valuenow="45" aria-valuemin="0" aria-valuemax="100" style="width: {{file.progress}}%">
+			    <span class="sr-only">{{file.progress}}</span>
+			  </div>
+			</div>
 		</div>
 	</div>
 </div>

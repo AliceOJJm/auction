@@ -6,7 +6,7 @@
           <img ng-src="{{user.user.avatar_url}}" alt="Avatar" class="center_img avatar">
           </br>
           <div class="center" ng-show="current_user.id == user.user.id">
-	          <button ngf-accept="'image/*'" ngf-select ng-model="avatar" class="close center font16">Upload avatar</button>		
+	          <button ngf-accept="'image/*'" ngf-select ng-model="avatar" ngf-keep='true' class="close center font16">Upload avatar</button>		
 	          <div ng-show="avatar && avatar.progress != 100">    
 				<div class="center">
 					<div class="progress progr">

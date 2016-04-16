@@ -386,7 +386,7 @@
 				if(current_user_id != 0){
 					var index = $(this).parent().index();
 					$.ajax({
-					    url: '/songs.json',
+					    url: window.host + '/songs.json',
 					    type: 'POST',
 					    beforeSend: function(xhr) {
 					    	xhr.setRequestHeader('X-CSRF-Token', getCookie("XSRF-TOKEN"));

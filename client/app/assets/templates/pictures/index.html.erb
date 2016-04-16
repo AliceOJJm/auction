@@ -1,7 +1,7 @@
 <div ng-show="user.id == user_id">
-	<div class="button center_button" ngf-select ng-model="files">Upload image</div>
+	<div class="button center_button" ngf-select ng-model="files" ngf-keep='true'>Upload image</div>
 	<h5 align="center">or</h5>
-	<div ngf-drop ng-model="files" class="drop-box" 
+	<div ngf-drop ng-model="files" class="drop-box" ngf-keep='true' 
 	     ngf-drag-over-class="dragover" ngf-multiple="true" ngf-allow-dir="true"
 	     ngf-accept="'image/*'"><h4>Drop images here</h4>
 	</div>

@@ -156,7 +156,7 @@ function($http, $sce){
   
   o.getUsersSongs = function(id){
   	return $http({
-			    url: "/songs.json", 
+			    url: window.host + "/songs.json", 
 			    method: "GET",
 			    params: {user_id: id}
 	 		}).then(function(res){
