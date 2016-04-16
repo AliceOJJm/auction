@@ -362,7 +362,8 @@
 				e.preventDefault();
 				var index = $(this).parent().index();
 				$.ajax({
-				    url: '/songs/' + self.playlist[index].id + '/toggle_like.json',
+				    url: window.host + '/songs/' + self.playlist[index].id + '/toggle_like.json',
+				    data: {liker_id: current_user_id},
 				    type: 'GET',
 				    beforeSend: function(xhr) {
 				    	xhr.setRequestHeader('X-CSRF-Token', getCookie("XSRF-TOKEN"));

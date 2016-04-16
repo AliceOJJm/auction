@@ -1,6 +1,6 @@
 //= require jquery
 //= require jquery_ujs
-//= require twitter/bootstrap
+//= require bootstrap
 //= require angular
 //= require angular-rails-templates
 //= require AngularDevise
@@ -117,7 +117,8 @@ function($stateProvider, $urlRouterProvider, $locationProvider) {
 	      templateUrl: 'communities/community.html',
 	        controller: 'CommunityCtrl',
 	        resolve: {
-			  postPromise: ['$stateParams', 'communities', function($stateParams, communities) {
+			  postPromise: ['$stateParams', 'communities', 'posts', function($stateParams, communities, posts) {
+          posts.getCommunitiesPosts($stateParams.id)
 			  	return communities.get($stateParams.id);
 			  }]
 			}
@@ -303,6 +304,17 @@ angular.module('boo').directive('postPanel', function() {
       current_user: "="
     }, 
     templateUrl: 'posts/_index.html' 
+  }; 
+});
+
+angular.module('boo').directive('communityPanel', function() { 
+  return { 
+    restrict: 'E', 
+    scope: { 
+      community: '=',
+      participants: "="
+    }, 
+    templateUrl: 'communities/_community.html' 
   }; 
 });
 

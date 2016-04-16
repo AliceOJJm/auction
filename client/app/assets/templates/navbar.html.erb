@@ -5,7 +5,7 @@
 		<span class="icon-bar"></span>
 		<span class="icon-bar"></span>
 	  </button>
-      <a href="/" class="navbar-brand logo">Boo</a>
+      <a href="/" class="navbar-brand logo">Auction</a>
       <p class="navbar-text pull-right">
  
   	<nav class="collapse navbar-collapse" role="navigation">
@@ -28,16 +28,25 @@
 	        <a ng-href="/lots">Lots</a>
 	      </li>
 	      <li class="dropdown" ng-show="signedIn()">
-			<a id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
-				Media
-				<span class="caret"></span>
-			</a>
-			<ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
-				<li><a ng-href="/id{{user.id}}/audio">My music</a></li>
-				<li><a ng-href="/id{{user.id}}/video">My videos</a></li>
-				<li><a ng-href="/id{{user.id}}/pictures">My pictures</a></li>
-			</ul>
-		  </li>
+					<a id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+						Media
+						<span class="caret"></span>
+					</a>
+					<ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
+						<li><a ng-href="/id{{user.id}}/audio">My music</a></li>
+						<li><a ng-href="/id{{user.id}}/video">My videos</a></li>
+						<li><a ng-href="/id{{user.id}}/pictures">My pictures</a></li>
+					</ul>
+			  </li>
+			  <li class="dropdown" ng-show="signedIn()">
+					<a id="dropdownMenu2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+						People
+						<span class="caret"></span>
+					</a>
+					<ul class="dropdown-menu" aria-labelledby="dropdownMenu2">
+						<li><a ng-href="/id{{user.id}}/friends">My friends</a></li>
+					</ul>
+			  </li>
 	    </ul>
 	    <ul class="nav navbar-nav navbar-right">
 	    	<li ng-hide="signedIn()"><a href="/login">Log In</a></li>

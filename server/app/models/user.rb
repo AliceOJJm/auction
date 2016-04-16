@@ -1,21 +1,49 @@
+# == Schema Information
+#
+# Table name: users
+#
+#  id                     :integer          not null, primary key
+#  email                  :string(255)      default(""), not null
+#  encrypted_password     :string(255)      default(""), not null
+#  reset_password_token   :string(255)
+#  reset_password_sent_at :datetime
+#  remember_created_at    :datetime
+#  sign_in_count          :integer          default("0"), not null
+#  current_sign_in_at     :datetime
+#  last_sign_in_at        :datetime
+#  current_sign_in_ip     :string(255)
+#  last_sign_in_ip        :string(255)
+#  created_at             :datetime
+#  updated_at             :datetime
+#  first_name             :string(255)
+#  last_name              :string(255)
+#  gender                 :string(255)
+#  avatar_url             :string(255)      default("http://read.me/images/userpic-177.png")
+#  birth_date             :date
+#  confirmation_token     :string(255)
+#  confirmed_at           :datetime
+#  confirmation_sent_at   :datetime
+#  unconfirmed_email      :string(255)
+#  likees_count           :integer          default("0")
+#
+
 require 'elasticsearch/model'
 
 class User < ActiveRecord::Base
   include Elasticsearch::Model
-  # Include default devise modules. Others available are:
-  # :confirmable, :lockable, :timeoutable and :omniauthable
-  devise :database_authenticatable, :registerable,# :confirmable,
+  devise :database_authenticatable, :registerable, :confirmable,
          :recoverable, :trackable, :validatable
          
   before_create :grand_users_abilities
    
   acts_as_liker
    
-  has_many :posts 
+  has_many :posts, as: :postable
   has_many :pictures
   has_and_belongs_to_many :songs
   has_and_belongs_to_many :videos 
   has_and_belongs_to_many :communities
+  has_many :own_communities, class_name: 'Community', foreign_key: :owner_id, dependent: :nullify
     
   has_many :users_roles
   has_many :roles, :through => :users_roles

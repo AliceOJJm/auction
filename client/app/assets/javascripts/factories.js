@@ -86,9 +86,20 @@ function($http, search){
       angular.copy(res, o.posts);
     });
   };
+
+  o.getCommunitiesPosts = function(id){
+    return $http.get(window.host + "/communities/" + id + "/posts.json").success(function(res){
+      angular.copy(res, o.posts);
+    });
+  };
   
   o.addPost = function(post){
-  	return $http.post(window.host + "/users/" + post.user_id + '/posts.json', post).success(function(res){
+    if (post.postable_type == 'User'){
+      url = window.host + "/users/" + post.postable_id + '/posts.json';
+    }else if (post.postable_type == 'Community'){
+      url = window.host + "/communities/" + post.postable_id + '/posts.json';
+    }
+  	return $http.post(url, post).success(function(res){
       o.posts.push({post: res, root_comments: []});
     });
   };
@@ -414,7 +425,7 @@ function($http, posts, search, videos){
   	if(callback){
   		process = callback;
   	}
-  	return $http.get(url).success(function(res){
+  	return $http.post(url).success(function(res){
   		process(res.increment);
     });
   };

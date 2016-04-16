@@ -1,0 +1,17 @@
+<div class="panel-body">
+  <div class="col-md-2">
+    <a ng-href="/communities/{{community.id}}">
+      <div class="friend_preview_1 inline">
+        <div class="friend_pic_frame">
+          <img ng-src="{{community.avatar_url}}" class="thumb_img_preview"/>
+        </div>
+      </div>
+    </a>
+  </div>
+  <div class="col-md-3">
+    <a ng-href="/communities/{{community.id}}">{{community.title}}</a>
+    &nbsp;{{participants}}
+    {{community.aim}}
+    {{community.description}}
+  </div>                           
+</div>

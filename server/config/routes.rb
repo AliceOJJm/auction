@@ -8,25 +8,29 @@ Rails.application.routes.draw do
     resources :subscribtions, only: [:create, :destroy, :edit]
     resources :friends, only: [:index]
     resources :posts do
-      get '/toggle_like', to: 'posts#toggle_like'
+      post '/toggle_like', to: 'posts#toggle_like'
     end
     resources :pictures do
-      get '/toggle_like', to: 'pictures#toggle_like'
+      post '/toggle_like', to: 'pictures#toggle_like'
     end
     resources :dialogues
     resources :messages
   end
   resources :comments do
-      get '/toggle_like', to: 'comments#toggle_like'
+      post '/toggle_like', to: 'comments#toggle_like'
   end
   resources :songs do
       get '/toggle_like', to: 'songs#toggle_like'
   end
   resources :videos do
-      get '/toggle_like', to: 'videos#toggle_like'
+      post '/toggle_like', to: 'videos#toggle_like'
   end
   resource :tags
-  resources :communities
+  resources :communities do
+    resources :posts do
+      post '/toggle_like', to: 'posts#toggle_like'
+    end
+  end
   get '/communities/:id/join', to: 'communities#join'
   get '/communities/:id/leave', to: 'communities#leave'
   post '/users/:id/edit', to: 'users#edit'

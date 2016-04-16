@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160416152204) do
+ActiveRecord::Schema.define(version: 20160416204911) do
 
   create_table "bids", force: :cascade do |t|
     t.integer  "lot_id",     limit: 4
@@ -55,6 +55,8 @@ ActiveRecord::Schema.define(version: 20160416152204) do
     t.text     "description", limit: 65535
     t.datetime "created_at",                null: false
     t.datetime "updated_at",                null: false
+    t.string   "avatar_url",  limit: 255
+    t.integer  "owner_id",    limit: 4
   end
 
   create_table "communities_users", id: false, force: :cascade do |t|
@@ -159,14 +161,13 @@ ActiveRecord::Schema.define(version: 20160416152204) do
   add_index "pictures", ["user_id"], name: "index_pictures_on_user_id", using: :btree
 
   create_table "posts", force: :cascade do |t|
-    t.text     "content",      limit: 65535
-    t.integer  "user_id",      limit: 4
-    t.datetime "created_at",                             null: false
-    t.datetime "updated_at",                             null: false
-    t.integer  "likers_count", limit: 4,     default: 0
+    t.text     "content",       limit: 65535
+    t.datetime "created_at",                              null: false
+    t.datetime "updated_at",                              null: false
+    t.integer  "likers_count",  limit: 4,     default: 0
+    t.integer  "postable_id",   limit: 4
+    t.string   "postable_type", limit: 255
   end
-
-  add_index "posts", ["user_id"], name: "index_posts_on_user_id", using: :btree
 
   create_table "roles", force: :cascade do |t|
     t.string   "name",       limit: 255
@@ -307,7 +308,6 @@ ActiveRecord::Schema.define(version: 20160416152204) do
   add_foreign_key "messages", "dialogues"
   add_foreign_key "messages", "users"
   add_foreign_key "pictures", "users"
-  add_foreign_key "posts", "users"
   add_foreign_key "songs", "users"
   add_foreign_key "users_roles", "roles"
   add_foreign_key "users_roles", "users"

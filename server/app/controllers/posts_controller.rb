@@ -3,8 +3,12 @@ class PostsController < ApplicationController
   before_action :set_post, only: [:show, :destroy]
 
   def index
-    posts = Array.new
-    User.find(params[:user_id]).posts.each do |post|
+    if params[:user_id].present?
+      posts_scope = User.find(params[:user_id]).posts
+    elsif params[:community_id].present?
+      posts_scope = Community.find(params[:community_id]).posts
+    end
+    posts = posts_scope.inject([]) do |posts, post|
       root_comments = User.add_names_pics post.root_comments
       posts << {post: post, root_comments: root_comments, tags: post.tag_list.map{|tag| {text: tag}}}
     end
@@ -15,8 +19,7 @@ class PostsController < ApplicationController
   end
 
   def create
-    @post = Post.new(post_params)
-    User.find(params[:user_id]).posts << @post
+    @post = Post.create(post_params)
     respond_to do |format|
       format.html 
       format.json { render json: @post }

@@ -72,11 +72,12 @@ class SongsController < ApplicationController
   end
  
   def toggle_like
-    @song = Song.find params[:song_id]
-    current_user.toggle_like!(@song)
+    @song = Song.find(params[:song_id])
+    @user = User.find(params[:liker_id])
+    @user.toggle_like!(@song)
     respond_to do |format|
       format.html 
-      format.json { render json: {increment: current_user.likes?(@song)} }
+      format.json { render json: {increment: @user.likes?(@song)} }
     end
   end
   

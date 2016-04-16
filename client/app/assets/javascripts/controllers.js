@@ -38,7 +38,7 @@ function($scope, Auth, Upload, Notification, Lightbox, users, posts, audio, vide
 	
 	$scope.addPost = function(){
 	  if(!$scope.content || $scope.content == '') { return; }
-	  posts.addPost({user_id: $scope.current_user.id, content: $scope.content});
+	  posts.addPost({postable_id: $scope.current_user.id, postable_type: 'User', content: $scope.content});
 	  $scope.content = '';
 	};
 	
@@ -473,7 +473,6 @@ function($scope, Auth, audio, Upload){
 	}
 	    
 	$scope.$watch('files', function () {
-    alert(Object.keys($scope.files[0]));
     $scope.uploadSongs($scope.files);
   });
   
@@ -555,7 +554,7 @@ function($scope, communities, $state, Auth){
   $scope.signedIn = Auth.isAuthenticated;
   $scope.communities = communities.all;
   $scope.createCommunity = function(){
-  	communities.create({title: $scope.title}, function(id){
+  	communities.create({title: $scope.title, aim: $scope.aim, description: $scope.description, owner_id: $scope.current_user.id}, function(id){
 	  	$scope.title = "";
 	  	$state.go('community', {id: id});
   	});
@@ -563,10 +562,8 @@ function($scope, communities, $state, Auth){
 }]);
 
 angular.module('boo-controllers').controller('CommunityCtrl', [
-'$scope', 'communities', 'Notification',
-'$state',
-'Auth',
-function($scope, communities, Notification, $state, Auth){
+'$scope', 'communities', 'Notification', '$state', 'Auth', 'posts',
+function($scope, communities, Notification, $state, Auth, posts){
   Auth.currentUser().then(function (user){
   	$scope.current_user = user;
   });
@@ -580,7 +577,12 @@ function($scope, communities, Notification, $state, Auth){
   	communities.leave($scope.current_user);
   	Notification.success("You left " + $scope.community.community.community.title);
   };
-  
+  $scope.posts = posts.posts;
+  $scope.addPost = function(){
+    if(!$scope.content || $scope.content == '') { return; }
+    posts.addPost({postable_id: $scope.community.community.community.id, postable_type: 'Community', content: $scope.content});
+    $scope.content = '';
+  };
 }]);
 
 angular.module('boo-controllers').controller('LotsCtrl', [

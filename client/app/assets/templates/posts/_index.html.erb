@@ -5,7 +5,7 @@
 		</div>
 		<div class="panel-body">
 			<div ng-show="!confirmation">
-				<a class="close" ng-click="confirmation = !confirmation" ng-show="current_user.id == post.post.post.user_id">×</a><br>
+				<a class="close" ng-click="confirmation = !confirmation" ng-show="current_user.id == post.post.post.postable_id">×</a><br>
 				{{post.post.post.content}}
 			</div>
 			<div ng-show="confirmation">
@@ -17,7 +17,7 @@
 				<button ng-click="confirmation = !confirmation;deletePost(post);" class="button button-raised button-primary button-pill button-small">Delete post</button>
 				<button ng-click="confirmation = !confirmation" class="button button-raised button-primary button-pill button-small">Cancel</button>
 			</div>
-			<tags-input ng-disabled="current_user.id != post.post.post.user_id" ng-model="post.tags" on-tag-removed="deleteTag($tag)" on-tag-added="addTag($tag)" class="ti-input-sm">
+			<tags-input ng-disabled="current_user.id != post.post.post.postable_id" ng-model="post.tags" on-tag-removed="deleteTag($tag)" on-tag-added="addTag($tag)" class="ti-input-sm">
 			  <auto-complete source="loadTags($query)"></auto-complete>
 			</tags-input>
 		    <form ng-show="!confirmation && current_user" ng-submit="addComment(post.post.post.id, post)" role="form">

@@ -9,7 +9,8 @@ class Ability
          can :read, :all
          can :userpage_media, User
          can :manage, User, :id => user.id
-         can :manage, [Dialogue, Message, Picture, Post, Song, Video], :user_id => user.id
+         can :manage, [Dialogue, Message, Picture, Song, Video], :user_id => user.id
+         can :manage, Post
          can :manage, Subscription
        end
      end

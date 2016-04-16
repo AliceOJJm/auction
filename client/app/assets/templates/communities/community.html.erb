@@ -1,4 +1,89 @@
-<button ng-show="community.participates==true" class="button button-raised button-primary button-pill button-small" ng-click="leave()">Leave community</button>
-<button ng-show="community.participates==false" class="button button-raised button-primary button-pill button-small" ng-click="join()">Join community</button>
-{{community.community.community.title}}
-{{community.participants.length}}
+<div class="row">
+ <div class="col-sm-5">
+      <div class="panel panel-default">
+        <div class="panel-body">
+          <img ng-src="{{community.community.community.avatar_url}}" alt="Avatar" class="center_img avatar">
+          </br>
+          <div class="center" ng-show="current_user.user.id == community.community.community.owner_id">
+            <button ngf-accept="'image/*'" ngf-select ng-model="avatar" ngf-keep='true' class="close center font16">Upload avatar</button>  
+            <br><br>  
+            <div ng-show="avatar && avatar.progress != 100">   
+            <br>   
+        <div class="center">
+          <div class="progress progr">
+            <div class="progress-bar progress-bar-striped active" role="progressbar" aria-valuenow="45" aria-valuemin="0" aria-valuemax="100" style="width: {{avatar.progress}}%">
+              <span class="sr-only">{{avatar.progress}}</span>
+            </div>
+          </div>  
+        </div>
+        </div>
+      </div>
+      <div class="center">
+        <button ng-show="community.participates==true" class="button button-raised button-primary button-pill button-small" ng-click="leave()">Leave community</button>
+        <button ng-show="community.participates==false" class="button button-raised button-primary button-pill button-small" ng-click="join()">Join community</button>
+        <br>                 
+      </div>
+    </div>
+  </div>
+  <div class="panel panel-default" ng-show="number_of_friends!=0 || number_of_friendship_requests!=0">
+    <div class="panel-heading">
+      <h4 class="pull_left clearfix">
+        <a ng-href="/communities/{{community.community.community}}/participants">Participants&nbsp;</a>{{community.participants.length}}
+      </h4>
+    </div>
+      <div class="panel-body">
+        <a ng-href="/id{{friend.user.id}}" ng-repeat="friend in random_friends" class="friend_preview inline">
+          <div class="friend_pic_frame">
+            <img ng-src="{{friend.user.avatar_url}}" class="thumb_img_preview"/>
+          </div>
+            {{friend.user.first_name}}<br>{{friend.user.last_name}}
+        </a>
+      </div>
+  </div>
+
+
+  <div class="panel panel-default" ng-show="last_pictures.length || current_user.id == user.user.id">
+     <div class="panel-heading"><h4><a ng-href="/id{{user.user.id}}/pictures">Pictures</a></h4></div>
+      <div class="panel-body">
+        <div ng-repeat="picture in last_pictures" class="thumb_div_preview">
+          <a ng-click="openLightboxModal($index)">
+            <img ng-src="{{picture.picture.picture.thumb_url}}" class="thumb_img_preview"/>
+          </a>
+        </div>
+        <c ng-hide="last_pictures.length" class="center">No pictures uploaded.</c>
+      </div>
+  </div>
+   
+  </div>
+  <div class="col-sm-7">
+    <div class="panel panel-default">
+        <div class="panel-body">
+          <p class="lead">{{community.community.community.title}}</p>
+          <a ng-href="/edit_profile" class="close glyphicon glyphicon-pencil" ng-show="current_user.user.id == community.community.community.owner_id"></a>
+      {{community.community.community.aim}}<br>
+      About: {{community.community.community.description}}<br>
+          <c ng-show="user.user.birth_date">Birth date: {{user.user.birth_date | date}}</c>
+        </div>
+     </div>
+    <div class="well" ng-show="current_user.user.id == community.community.community.owner_id"> 
+       <form class="form-horizontal" role="form" ng-submit="addPost()">
+        <h4>What's New</h4>
+         <div class="form-group" style="padding:14px;">
+          <textarea class="form-control" placeholder="Update your status" ng-model="content"></textarea>
+         </div>
+        <button class="btn btn-primary pull-right" type="submit">Post</button>
+        <ul class="list-inline"
+      <li><a href=""><i class="glyphicon glyphicon-upload"></i></a></li>
+      <li><a href=""><i class="glyphicon glyphicon-camera"></i></a></li>
+      <li><a href=""><i class="glyphicon glyphicon-map-marker"></i></a></li>
+    </ul>
+      </form>
+    </div>
+    <div ng-show = "posts.length == 0"><h4 align = center>No posts</h4></div>
+  <div ng-repeat="post in posts | orderBy: '-post.post.updated_at'">
+    <post-panel post=post></post-panel>
+    </div>
+ </div>
+</div>
+<hr>
+  

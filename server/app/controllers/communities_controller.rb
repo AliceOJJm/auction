@@ -29,7 +29,6 @@ class CommunitiesController < ApplicationController
     community = Community.new(community_params)
     community.save!
     community.users << current_user
-    #community.contacts << current_user
     respond_to do |format|
       format.html
       format.json {render json: {id: community.id}}
