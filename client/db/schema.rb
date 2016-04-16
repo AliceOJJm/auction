@@ -100,7 +100,7 @@ ActiveRecord::Schema.define(version: 20150830162012) do
     t.datetime "created_at",                                null: false
     t.datetime "updated_at",                                null: false
     t.integer  "dialogue_id", limit: 4
-    t.boolean  "viewed",      limit: 1,     default: false
+    t.boolean  "viewed",                    default: false
   end
 
   add_index "messages", ["dialogue_id"], name: "index_messages_on_dialogue_id", using: :btree
@@ -142,22 +142,18 @@ ActiveRecord::Schema.define(version: 20150830162012) do
   end
 
   create_table "songs", force: :cascade do |t|
-    t.string   "url",               limit: 255
-    t.integer  "user_id",           limit: 4
-    t.string   "title",             limit: 255
-    t.string   "performer",         limit: 255
-    t.string   "genre",             limit: 255
-    t.datetime "created_at",                                  null: false
-    t.datetime "updated_at",                                  null: false
-    t.string   "file_file_name",    limit: 255
-    t.string   "file_content_type", limit: 255
-    t.integer  "file_file_size",    limit: 4
-    t.datetime "file_updated_at"
-    t.text     "metadata",          limit: 65535
-    t.integer  "attachable_id",     limit: 4
-    t.string   "attachable_type",   limit: 255
-    t.integer  "owners",            limit: 4,     default: 1
-    t.integer  "likers_count",      limit: 4,     default: 0
+    t.string   "url",             limit: 255
+    t.integer  "user_id",         limit: 4
+    t.string   "title",           limit: 255
+    t.string   "performer",       limit: 255
+    t.string   "genre",           limit: 255
+    t.datetime "created_at",                                null: false
+    t.datetime "updated_at",                                null: false
+    t.text     "metadata",        limit: 65535
+    t.integer  "attachable_id",   limit: 4
+    t.string   "attachable_type", limit: 255
+    t.integer  "owners",          limit: 4,     default: 1
+    t.integer  "likers_count",    limit: 4,     default: 0
   end
 
   add_index "songs", ["attachable_type", "attachable_id"], name: "index_songs_on_attachable_type_and_attachable_id", using: :btree
@@ -176,7 +172,7 @@ ActiveRecord::Schema.define(version: 20150830162012) do
     t.integer  "subscriber_id", limit: 4
     t.datetime "created_at",                              null: false
     t.datetime "updated_at",                              null: false
-    t.boolean  "viewed",        limit: 1, default: false
+    t.boolean  "viewed",                  default: false
   end
 
   create_table "taggings", force: :cascade do |t|
@@ -224,6 +220,7 @@ ActiveRecord::Schema.define(version: 20150830162012) do
     t.integer  "likees_count",           limit: 4,   default: 0
   end
 
+  add_index "users", ["confirmation_token"], name: "index_users_on_confirmation_token", unique: true, using: :btree
   add_index "users", ["email"], name: "index_users_on_email", unique: true, using: :btree
   add_index "users", ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
 
@@ -246,19 +243,15 @@ ActiveRecord::Schema.define(version: 20150830162012) do
   add_index "users_videos", ["video_id"], name: "index_users_videos_on_video_id", using: :btree
 
   create_table "videos", force: :cascade do |t|
-    t.string   "url",               limit: 255
-    t.integer  "user_id",           limit: 4
-    t.string   "title",             limit: 255
-    t.datetime "created_at",                                null: false
-    t.datetime "updated_at",                                null: false
-    t.string   "file_file_name",    limit: 255
-    t.string   "file_content_type", limit: 255
-    t.integer  "file_file_size",    limit: 4
-    t.datetime "file_updated_at"
-    t.integer  "attachable_id",     limit: 4
-    t.string   "attachable_type",   limit: 255
-    t.integer  "owners",            limit: 4,   default: 1
-    t.integer  "likers_count",      limit: 4,   default: 0
+    t.string   "url",             limit: 255
+    t.integer  "user_id",         limit: 4
+    t.string   "title",           limit: 255
+    t.datetime "created_at",                              null: false
+    t.datetime "updated_at",                              null: false
+    t.integer  "attachable_id",   limit: 4
+    t.string   "attachable_type", limit: 255
+    t.integer  "owners",          limit: 4,   default: 1
+    t.integer  "likers_count",    limit: 4,   default: 0
   end
 
   add_index "videos", ["attachable_type", "attachable_id"], name: "index_videos_on_attachable_type_and_attachable_id", using: :btree

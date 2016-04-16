@@ -493,7 +493,7 @@ angular.module('boo-factories').factory('lots', ['$http',
 
 		o.create = function(lot, callback) {
 			return $http.post(window.host + '/lots.json', lot).success(function(res){
-				callback(res.id);
+				callback(res);
 			});
 		};
 

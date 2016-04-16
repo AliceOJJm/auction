@@ -32,6 +32,8 @@ class User < ActiveRecord::Base
 
   has_and_belongs_to_many :dialogues
   has_many :messages
+
+  has_many :bids
   
   #searchable do
   #  text :first_name, :last_name, boost: 5.0

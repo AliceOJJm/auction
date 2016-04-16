@@ -1,4 +1,7 @@
 Rails.application.routes.draw do
+  resources :bids
+  resources :lots
+  resources :categories
   devise_for :users, controllers: { registrations: 'registrations', sessions: 'sessions' }
   
   resources :users, only: [:show, :index, :edit, :update] do

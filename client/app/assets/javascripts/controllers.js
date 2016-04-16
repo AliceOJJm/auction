@@ -587,9 +587,18 @@ angular.module('boo-controllers').controller('LotsCtrl', [
 	'$state',
 	'Auth',
 	function($scope, lots, $state, Auth){
-		Auth.currentUser().then(function (user){
-			$scope.current_user = user.user;
+    $scope.lot = {};
+		Auth.currentUser().then(function (response){
+			$scope.current_user = response.user;
+      $scope.lot.user_id = response.user.id
 		});
 		$scope.signedIn = Auth.isAuthenticated;
 		$scope.lots = lots.lots;
+
+
+    $scope.createLot = function() {
+      lots.create($scope.lot, function(res) {
+        $scope.lot.title = $scope.lot.description = '';
+      })
+    }
 	}]);
