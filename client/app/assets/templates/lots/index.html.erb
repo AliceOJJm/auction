@@ -1,41 +1,23 @@
 <div class="well">
 
 
-    <form class="form-horizontal" role="form" ng-show="signedIn()" ng-submit="createLot()">
+    <form class="form-horizontal" role="form" ng-submit="createLot()">
         <h4>Lot title</h4>
         <div class="form-group" style="padding:14px;">
-            <input class="form-control" type="text" ng-model="lot.title" required></input>
+            <input class="form-control" type="text" ng-model="title" required></input>
         </div>
         <h5>Lot description</h5>
         <div class = "form-group">
-            <textarea class="form-control" ng-model="lot.description"></textarea>
+            <textarea class="form-control" ng-model="description"></textarea>
         </div>
         <br>
-        <label class="radio-inline">
-            <input type="radio" name="type" ng-model="type" value="fixed">
-            Fixed price
-        </label>
-        <label class="radio-inline">
-            <input type="radio" name="type" ng-model="type" value="bargaining">
-            Bargaining
-        </label><br/>
 
-
-        <div ng-show="type">
-            <div ng-show="type=='fixed'">
-                <label>
-                    Count:
-                    <input type="number" ng-model="count" placeholder='1'>
-                </label>
-            </div>
-
-
-            <div ng-show="type=='bargaining'">
+            <div>
                 <label>
                     Start price:
                     <div class="input-group">
                         <span class="input-group-addon">$</span>
-                        <input type="number" ng-model="start_price" min="0" class="form-control currency" />
+                        <input type="number" ng-model="starting_price" min="0" class="form-control currency" />
                     </div>
                 </label>
                 <label>
@@ -45,15 +27,27 @@
                         <input type="number" ng-model="buyout_price" min={{start_price}} class="form-control currency" />
                     </div>
                 </label>
-                <div class="col-xs-10">
-                    <label for="tradingDuration"> Trading duration: </label>
-                    <select class="form-control" name="tradingDuration" ng-model="duration">
-                      <option value="3">3 days</option>
-                      <option value="5">5 days</option>
-                      <option value="7">7 days</option>
-                      <option value="10">10 days</option>
-                      <option value="14">14 days</option>
-                    </select><br>
+                <div class = "row">
+                    <div class="col-xs-6">
+                        <label for="tradingDuration"> Trading duration: </label>
+                        <select class="form-control" name="tradingDuration" ng-model="duration">
+                          <option value="3">3 days</option>
+                          <option value="5">5 days</option>
+                          <option value="7">7 days</option>
+                          <option value="10">10 days</option>
+                          <option value="14">14 days</option>
+                        </select><br>
+                    </div>
+                    <div class="col-xs-6">
+                        <label for="category_id"> Category: </label>
+                        <select class="form-control" name="category_id" ng-model="category_id">
+                          <option value="1">first </option>
+                          <option value="2">second</option>
+                          <option value="3">third</option>
+                          <option value="4">fourth</option>
+                          <option value="5">fifth</option>
+                        </select><br>
+                    </div>
                 </div>
             </div>
 
@@ -62,8 +56,7 @@
     </form>
 </div>
 
-preview: <timer end-time="1461809280000">{{days}} days, {{hours}} hours, {{minutes}} minutes, {{seconds}} seconds.</timer>
-<!--
+
 <div ng-repeat="lot in lots">
     <a ng-href="/lots/{{lot.id}}">
         {{lot.title}}
@@ -71,4 +64,3 @@ preview: <timer end-time="1461809280000">{{days}} days, {{hours}} hours, {{minut
         <timer end-time={{lot.end_time}}>{{days}} days, {{hours}} hours, {{minutes}} minutes, {{seconds}} seconds.</timer>
     </a>
 </div>
--->

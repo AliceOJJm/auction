@@ -491,9 +491,9 @@ angular.module('boo-factories').factory('lots', ['$http',
 		};
 
 		o.getAll = function() {
-			return []/*$http.get(window.host + '/lots.json').success(function(res){
+			return $http.get(window.host + '/lots.json').success(function(res){
 				angular.copy(res, o.all);
-			});*/
+			});
 		};
 
 		o.get = function(id) {
