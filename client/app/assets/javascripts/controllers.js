@@ -600,10 +600,8 @@ angular.module('boo-controllers').controller('LotsCtrl', [
 
 
     $scope.createLot = function() {
-		lots.create({title: $scope.title, description: $scope.description, owner_id: $scope.current_user.id,
-					category_id: $scope.category_id, starting_price: $scope.starting_price, current_price: $scope.starting_price,
-					duration: $scope.duration}, function(id){
-			/*$state.go('lot', {id: id})*/;
-		});
+			lots.create($scope.lot, function(id){
+				/*$state.go('lot', {id: id})*/;
+			});
     }
 	}]);
