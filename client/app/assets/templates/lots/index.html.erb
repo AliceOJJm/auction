@@ -58,6 +58,6 @@
     <a ng-href="/lots/{{lot.id}}">
         {{lot.title}}
         {{lot.description}}
-        <timer end-time={{lot.end_time}}>{{days}} days, {{hours}} hours, {{minutes}} minutes, {{seconds}} seconds.</timer>
+        <timer end-time="lot.expires_at">{{days}} days, {{hours}} hours, {{minutes}} minutes, {{seconds}} seconds.</timer>
     </a>
 </div>
