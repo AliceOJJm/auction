@@ -283,6 +283,16 @@ function($stateProvider, $urlRouterProvider, $locationProvider) {
 			  return lots.getAll();
 		  }]
 	  }
+	})
+	.state('lot', {
+	  url: '/lots/:id',
+	  templateUrl: 'lots/lot.html',
+	  controller: 'LotCtrl',
+	  resolve: {
+		  postPromise: ['$stateParams', 'lots', function($stateParams, lots) {
+			  return lots.get($stateParams.id);
+		  }]
+	  }
 	});
 }]);
 

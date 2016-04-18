@@ -603,7 +603,18 @@ angular.module('boo-controllers').controller('LotsCtrl', [
 		lots.create({title: $scope.title, description: $scope.description, owner_id: $scope.current_user.id,
 					category_id: $scope.category_id, starting_price: $scope.starting_price, current_price: $scope.starting_price,
 					duration: $scope.duration}, function(id){
-			/*$state.go('lot', {id: id})*/;
+			$state.go('lot', {id: id});
 		});
     }
+	}]);
+
+angular.module('boo-controllers').controller('LotCtrl', [
+	'$scope', 'lots', 'Auth', 'posts',
+	function($scope, communities, Auth, posts){
+		Auth.currentUser().then(function (user){
+			$scope.current_user = user;
+		});
+		$scope.signedIn = Auth.isAuthenticated;
+
+		$scope.lot = lot;
 	}]);

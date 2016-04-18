@@ -487,7 +487,8 @@ function($http){
 angular.module('boo-factories').factory('lots', ['$http',
 	function($http){
 		var o = {
-			all: []
+			all: [],
+			current: {}
 		};
 
 		o.getAll = function() {
