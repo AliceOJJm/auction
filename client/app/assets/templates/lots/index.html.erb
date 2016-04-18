@@ -54,10 +54,6 @@
 </div>
 
 
-<div ng-repeat="lot in lots">
-    <a ng-href="/lots/{{lot.id}}">
-        {{lot.title}}
-        {{lot.description}}
-        <timer end-time="lot.expires_at">{{days}} days, {{hours}} hours, {{minutes}} minutes, {{seconds}} seconds.</timer>
-    </a>
+<div ng-repeat="lotItem in lots">
+    <lot-panel lot = lotItem></lot-panel>
 </div>

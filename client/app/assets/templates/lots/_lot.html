@@ -1,0 +1,9 @@
+<div class="panel-body">
+    <div class="col-md-3">
+        <a ng-href="/lots/{{lot.id}}">{{lot.title}}</a>
+        {{lot.description}}
+    </div>
+    <div class="col-md-3">
+        <timer end-time="lot.expires_at">{{days}} days, {{hours}} hours, {{minutes}} minutes, {{seconds}} seconds.</timer>
+    </div>
+</div>

@@ -318,6 +318,16 @@ angular.module('boo').directive('communityPanel', function() {
   }; 
 });
 
+angular.module('boo').directive('lotPanel', function() {
+	return {
+		restrict: 'E',
+		scope: {
+			lot: '='
+		},
+		templateUrl: 'lots/_lot.html'
+	};
+});
+
 angular.module('boo').config(function($httpProvider){
   var interceptor = function($q, $location, $rootScope) {
     return {
