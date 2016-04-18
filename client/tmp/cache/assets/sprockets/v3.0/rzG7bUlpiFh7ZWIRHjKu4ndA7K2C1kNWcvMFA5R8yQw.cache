@@ -1,46 +1,0 @@
-{:uriI"’file:///home/elizaveta/%D0%BA%D1%83%D1%80%D1%81%D0%B0%D1%87/auction/client/app/assets/bower_components/Buttons/package.json?type=application/json&id=a3973c3a1a2acf00af8e681cf4b633402a18aef7744e89a8fb09ad32157475de:ET:load_pathI" app/assets/bower_components;T:filenameI"5app/assets/bower_components/Buttons/package.json;T:	nameI"Buttons/package;T:logical_pathI"Buttons/package.json;T:content_typeI"application/json;T:sourceI"R{
-  "name": "Buttons",
-  "version": "2.0.0",
-  "description": "A CSS button library built with Sass",
-  "author": "Unicorn-UI <updates@unicorn-ui.com>",
-  "homepage": "http://unicorn-ui.com/",
-  "repository": {
-    "type": "git",
-    "url": "git@github.com:alexwolfe/Buttons.git"
-  },
-  "contributors": "https://github.com/alexwolfe/Buttons/graphs/contributors",
-  "keywords": [
-    "Buttons",
-    "CSS Buttons",
-    "Sass Buttons"
-  ],
-  "scripts": {
-    "test": "grunt tests --verbose"
-  },
-  "license": "Apache License, Version 2.0",
-  "bugs": {
-    "url": "https://github.com/alexwolfe/Buttons/issues"
-  },
-  "devDependencies": {
-    "grunt-autoprefixer": "^0.8.1",
-    "grunt-contrib-clean": "^0.6.0",
-    "grunt-contrib-connect": "^0.8.0",
-    "grunt-contrib-copy": "^0.5.0",
-    "grunt-contrib-cssmin": "^0.10.0",
-    "grunt-contrib-qunit": "^0.5.2",
-    "grunt-contrib-sass": "^0.7.4",
-    "grunt-contrib-watch": "^0.6.1",
-    "grunt-includes": "^0.4.5",
-    "grunt-saucelabs": "^8.3.2",
-    "webpack": "^1.4.5"
-  },
-  "dependencies": {
-    "grunt": "^0.4.5",
-    "grunt-saucelabs": "^8.3.2"
-  }
-}
-;T:metadata{	:dependencieso:Set:
-@hash{
-I"environment-version;TTI"environment-paths;TTI"rails-env;TTI"@processors:type=application/json&file_type=application/json;TTI"Çfile-digest:///home/elizaveta/%D0%BA%D1%83%D1%80%D1%81%D0%B0%D1%87/auction/client/app/assets/bower_components/Buttons/package.json;TT:charsetI"
-utf-8;F:digest"%+ï˝+‡∑ƒyH∫ï.8∑cwzè%˙bèô€õ-÷≈:lengthiR:dependencies_digest"%¶cÇ—hõ`¥P‰≤œw*8”;v¯Kl’Ã“∂ƒÉ:idI"Ea3973c3a1a2acf00af8e681cf4b633402a18aef7744e89a8fb09ad32157475de;F:
-mtimel+”ÀhT

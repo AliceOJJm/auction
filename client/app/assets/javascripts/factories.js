@@ -511,3 +511,23 @@ angular.module('boo-factories').factory('lots', ['$http',
 
 		return o;
 	}]);
+
+angular.module('boo-factories').factory('bids', ['$http', function($http) {
+  var o = {
+    all: []
+  }
+
+  o.getAll = function(lotId) {
+    return $http.get(window.host + '/lots/' + lotId + '/bids.json').success(function(res) {
+      angular.copy(res, o.all);
+    })
+  };
+
+  o.create = function(bid, lotId, callback) {
+    return $http.post(window.host + '/lots/' + lotId + '/bids.json', bid).success(function(res) {
+      callback(res);
+    })
+  }
+
+  return o;
+}]);

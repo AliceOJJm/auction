@@ -1,30 +1,0 @@
-{:uriI"Õfile:///home/elizaveta/%D0%BA%D1%83%D1%80%D1%81%D0%B0%D1%87/auction/client/app/assets/bower_components/angular/package.json?type=application/json&id=da1dbbfff6c27a0926b4c3ca4cf6b3abe969d92b1b3d7f50efb97ec44bbbf8e3:ET:load_pathI" app/assets/bower_components;T:filenameI"5app/assets/bower_components/angular/package.json;T:	nameI"angular/package;T:logical_pathI"angular/package.json;T:content_typeI"application/json;T:sourceI"<{
-  "name": "angular",
-  "version": "1.5.3",
-  "description": "HTML enhanced for web apps",
-  "main": "index.js",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
-  "repository": {
-    "type": "git",
-    "url": "https://github.com/angular/angular.js.git"
-  },
-  "keywords": [
-    "angular",
-    "framework",
-    "browser",
-    "client-side"
-  ],
-  "author": "Angular Core Team <angular-core+npm@google.com>",
-  "license": "MIT",
-  "bugs": {
-    "url": "https://github.com/angular/angular.js/issues"
-  },
-  "homepage": "http://angularjs.org"
-}
-;T:metadata{	:dependencieso:Set:
-@hash{
-I"environment-version;TTI"environment-paths;TTI"rails-env;TTI"@processors:type=application/json&file_type=application/json;TTI"‚file-digest:///home/elizaveta/%D0%BA%D1%83%D1%80%D1%81%D0%B0%D1%87/auction/client/app/assets/bower_components/angular/package.json;TT:charsetI"
-utf-8;F:digest"%_ñ‡¬nƒÍp$Ó{²*·f¾Ö…~ÖU‚­êã:lengthi<:dependencies_digest"%î!‚¹¾DÛ¿Y‡i{»A"©b‚9±`]Co¿Uj:idI"Eda1dbbfff6c27a0926b4c3ca4cf6b3abe969d92b1b3d7f50efb97ec44bbbf8e3;F:
-mtimel+¡õV

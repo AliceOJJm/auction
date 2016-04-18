@@ -291,7 +291,10 @@ function($stateProvider, $urlRouterProvider, $locationProvider) {
 	  resolve: {
 		  postPromise: ['$stateParams', 'lots', function($stateParams, lots) {
 			  return lots.get($stateParams.id);
-		  }]
+		  }],
+      allBids: ['$stateParams', 'bids', function($stateParams, bids) {
+        return bids.getAll($stateParams.id);
+      }]
 	  }
 	});
 }]);

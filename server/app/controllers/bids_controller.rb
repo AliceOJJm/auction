@@ -13,9 +13,14 @@ class BidsController < ApplicationController
   # POST /bids.json
   def create
     @bid = Bid.new(bid_params)
+    lot = Lot.find(bid_params[:lot_id])
 
     respond_to do |format|
       if @bid.save
+        # move into callback
+        lot.update(expires_at: Time.now + 1.hour) if lot.expires_at - Time.now < 20.minutes
+        lot.update(current_price: @bid.price + lot.current_price)
+
         format.html { redirect_to @bid, notice: 'Bid was successfully created.' }
         format.json { render :show, status: :created, location: @bid }
       else

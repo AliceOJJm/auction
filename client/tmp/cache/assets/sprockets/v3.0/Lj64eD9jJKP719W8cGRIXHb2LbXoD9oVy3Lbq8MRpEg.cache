@@ -1,19 +1,0 @@
-{:uriI"Ùfile:///home/elizaveta/%D0%BA%D1%83%D1%80%D1%81%D0%B0%D1%87/auction/client/app/assets/bower_components/ng-tags-input/bower.json?type=application/json&id=4f96b84b8299aa2eca428507f55546cdc18f8b3c0a3af9f03eac3fdeaf3b90b0:ET:load_pathI" app/assets/bower_components;T:filenameI"9app/assets/bower_components/ng-tags-input/bower.json;T:	nameI"ng-tags-input/bower;T:logical_pathI"ng-tags-input/bower.json;T:content_typeI"application/json;T:sourceI"\{
-  "name": "ng-tags-input",
-  "version": "3.0.0",
-  "location": "https://github.com/mbenford/ngTagsInput-bower",
-  "homepage": "http://mbenford.github.io/ngTagsInput",
-  "main": [
-    "ng-tags-input.min.js",
-    "ng-tags-input.min.css"
-  ],
-  "description": "Tags input directive for AngularJS",
-  "dependencies": {
-    "angular": ">=1.3.0"
-  }
-}
-;T:metadata{	:dependencieso:Set:
-@hash{
-I"environment-version;TTI"environment-paths;TTI"rails-env;TTI"@processors:type=application/json&file_type=application/json;TTI"†file-digest:///home/elizaveta/%D0%BA%D1%83%D1%80%D1%81%D0%B0%D1%87/auction/client/app/assets/bower_components/ng-tags-input/bower.json;TT:charsetI"
-utf-8;F:digest"%¨l›£d	ÛÉ9ÇıYƒ½kÁ­k³KÛÅ‘Ö:lengthi\:dependencies_digest"%	Íèay5e4Üq—˜îÕ’ûîíñC²ŒŞÀ+‡ïà:idI"E4f96b84b8299aa2eca428507f55546cdc18f8b3c0a3af9f03eac3fdeaf3b90b0;F:
-mtimel+	àÑU

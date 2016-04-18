@@ -1,20 +1,0 @@
-{:uriI"Úfile:///home/elizaveta/%D0%BA%D1%83%D1%80%D1%81%D0%B0%D1%87/auction/client/app/assets/bower_components/ng-file-upload/bower.json?type=application/json&id=cec200828ec5f4c5e526aa3a8bccdee8316b88022a18c0d9dadb6860c7b90195:ET:load_pathI" app/assets/bower_components;T:filenameI":app/assets/bower_components/ng-file-upload/bower.json;T:	nameI"ng-file-upload/bower;T:logical_pathI"ng-file-upload/bower.json;T:content_typeI"application/json;T:sourceI"‡{
-  "name": "ng-file-upload",
-  "main": "ng-file-upload.js",
-  "homepage": "https://github.com/danialfarid/ng-file-upload",
-  "dependencies": {
-    "angular": ">1.2.0"
-  },
-  "authors": [
-    "danialf <danial.farid@gmail.com>"
-  ],
-  "description": "Lightweight Angular JS directive to upload files. Support drag&drop, paste image, progress and abort",
-  "ignore": [],
-  "license": "MIT"
- }
-;T:metadata{	:dependencieso:Set:
-@hash{
-I"environment-version;TTI"environment-paths;TTI"rails-env;TTI"@processors:type=application/json&file_type=application/json;TTI"‡file-digest:///home/elizaveta/%D0%BA%D1%83%D1%80%D1%81%D0%B0%D1%87/auction/client/app/assets/bower_components/ng-file-upload/bower.json;TT:charsetI"
-utf-8;F:digest"%v…Â{‡ôÈI#ÁÀ
-ÈÂ°‘q–CóV¬D]ª5cöS}m:lengthi‡:dependencies_digest"%Ëw4µ7h¢ºwI£ðo+º`•ÈgÆJ†MÌíEU|:idI"Ecec200828ec5f4c5e526aa3a8bccdee8316b88022a18c0d9dadb6860c7b90195;F:
-mtimel+¼-ãV

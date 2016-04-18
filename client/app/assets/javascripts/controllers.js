@@ -599,21 +599,31 @@ angular.module('boo-controllers').controller('LotsCtrl', [
 		$scope.lots = lots.all;
 
     $scope.createLot = function() {
-		lots.create({title: $scope.title, description: $scope.description, owner_id: $scope.current_user.id,
-					category_id: $scope.category_id, starting_price: $scope.starting_price, current_price: $scope.starting_price,
-					duration: $scope.duration}, function(id){
+		lots.create($scope.lot, function(id){
 			$state.go('lot', {id: id});
 		});
     }
 	}]);
 
 angular.module('boo-controllers').controller('LotCtrl', [
-	'$scope', 'lots', 'Auth',
-	function($scope, lots, communities, Auth){
-		/*Auth.currentUser().then(function (user){
-			$scope.current_user = user;
-		});
-		$scope.signedIn = Auth.isAuthenticated;*/
+	'$scope', 'lots', 'Auth', 'bids',
+	function($scope, lots, Auth, bids){
+    $scope.lot = lots.current;
+    debugger
+    $scope.bid = {
+      lot_id: $scope.lot.id
+    };
 
-		$scope.lot = lots.current;
+		Auth.currentUser().then(function (res){
+			$scope.current_user = res.user;
+      $scope.bid.user_id = res.user.id;
+		});
+		// $scope.signedIn = Auth.isAuthenticated;
+    $scope.bids = bids.all;
+
+    $scope.createBid = function() {
+      bids.create($scope.bid, $scope.lot.id, function(res) {
+        console.log(res);
+      });
+    }
 	}]);

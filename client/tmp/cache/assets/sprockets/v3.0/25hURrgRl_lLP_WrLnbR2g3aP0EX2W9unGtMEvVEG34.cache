@@ -1,33 +1,0 @@
-{:uriI"ﬂfile:///home/elizaveta/%D0%BA%D1%83%D1%80%D1%81%D0%B0%D1%87/auction/client/app/assets/bower_components/angular-loading-bar/bower.json?type=application/json&id=552afec7b606359e6b8c3f432a4318a064bdaaee86931ad3b1560a91ff236229:ET:load_pathI" app/assets/bower_components;T:filenameI"?app/assets/bower_components/angular-loading-bar/bower.json;T:	nameI"angular-loading-bar/bower;T:logical_pathI"#angular-loading-bar/bower.json;T:content_typeI"application/json;T:sourceI"&{
-  "name": "angular-loading-bar",
-  "main": [
-    "build/loading-bar.js",
-    "build/loading-bar.css"
-  ],
-  "ignore": [
-    "**/.*",
-    "node_modules",
-    "components",
-    "test",
-    "example"
-  ],
-  "dependencies": {
-    "angular": "^1.2.9"
-  },
-  "devDependencies": {
-    "angular": "~1.2.23",
-    "angular-1.3": "angular#1.3",
-    "angular-mocks": "~1.2.9",
-    "angular-mocks-1.3": "angular-mocks#1.3",
-    "angular-animate": "~1.2.9",
-    "angular-animate-1.3": "angular-animate#1.3"
-  },
-  "resolutions": {
-    "angular": "~1.2.23"
-  }
-}
-;T:metadata{	:dependencieso:Set:
-@hash{
-I"environment-version;TTI"environment-paths;TTI"rails-env;TTI"@processors:type=application/json&file_type=application/json;TTI"åfile-digest:///home/elizaveta/%D0%BA%D1%83%D1%80%D1%81%D0%B0%D1%87/auction/client/app/assets/bower_components/angular-loading-bar/bower.json;TT:charsetI"
-utf-8;F:digest"%Q$Úõ´ÃΩﬂŒÍW_öá`9öˆœ1åÑÃ•F›r^:lengthi&:dependencies_digest"%çı]âƒ6tÈJ„∆AÖSubúJ'ÄY®ÚÍ0aU¿Æf:idI"E552afec7b606359e6b8c3f432a4318a064bdaaee86931ad3b1560a91ff236229;F:
-mtimel+´ÜÑU

@@ -14,4 +14,12 @@
 class Bid < ActiveRecord::Base
   belongs_to :lot
   belongs_to :user
+
+  validate :created_at_cannot_be_after_lot_expires_at
+
+  def created_at_cannot_be_after_lot_expires_at
+    if self.lot.present? && Time.now > self.lot.expires_at
+      errors.add(:creation_time, "can't be after lot's expiration time")
+    end
+  end
 end

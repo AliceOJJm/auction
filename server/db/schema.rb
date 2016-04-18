@@ -11,15 +11,15 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160416204911) do
+ActiveRecord::Schema.define(version: 20160418202050) do
 
   create_table "bids", force: :cascade do |t|
     t.integer  "lot_id",     limit: 4
     t.integer  "user_id",    limit: 4
     t.integer  "price",      limit: 4
-    t.boolean  "is_final"
-    t.datetime "created_at",           null: false
-    t.datetime "updated_at",           null: false
+    t.boolean  "is_final",             default: false
+    t.datetime "created_at",                           null: false
+    t.datetime "updated_at",                           null: false
   end
 
   add_index "bids", ["lot_id"], name: "index_bids_on_lot_id", using: :btree

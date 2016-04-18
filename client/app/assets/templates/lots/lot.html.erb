@@ -16,6 +16,10 @@
 		<div class="panel-body">
   			{{lot.description}}
 			</div>
+		<form ng-submit="createBid()" ng-show="current_user.id != lot.user_id">
+			<input type="number" ng-model="bid.price">
+			<button type="submit" class="btn btn-primary btn-sm">Bid</button>
+		</form>
 	</div>
 </div>
 <div class="col-xs-4">
