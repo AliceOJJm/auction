@@ -1,0 +1,42 @@
+<div class="panel panel-default col-xs-8">
+	<div class="panel-heading">
+		Pictures
+	</div>
+	<div class="panel-body">
+		<div  ng-repeat="picture in lot.pictures">
+			<img src="picture.url">
+		</div>
+    	<c ng-hide="lot.pictures.length" class="center">No pictures uploaded.</c>
+	</div>
+</div>
+<div class="panel panel-default col-xs-4">
+	<div class="panel-heading">
+		<h4>{{lot.title}}</h4>
+	</div>
+		<div class="panel-body">
+  			{{lot.description}}
+			</div>
+	</div>
+</div>
+<div class="col-xs-4">
+	<timer end-time="lot.expires_at">
+		<table class="table table-striped">
+			<thead>
+				<tr>
+					<th style="text-align: center">Days</th>
+					<th style="text-align: center">Hours</th>
+					<th style="text-align: center">Minutes</th>
+					<th style="text-align: center">Seconds</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr>
+					<th style="text-align: center">{{days}}</th>
+					<th style="text-align: center">{{hours}}</th>
+					<th style="text-align: center">{{minutes}}</th>
+					<th style="text-align: center">{{seconds}}</th>
+				</tr>
+			</tbody>
+		</table>
+	</timer>
+</div>
