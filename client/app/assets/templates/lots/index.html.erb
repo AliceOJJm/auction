@@ -3,11 +3,11 @@
     <form class="form-horizontal" role="form" ng-submit="createLot()">
         <h4>Lot title</h4>
         <div class="form-group" style="padding:14px;">
-            <input class="form-control" type="text" ng-model="title" required></input>
+            <input class="form-control" type="text" ng-model="lot.title" required></input>
         </div>
         <h5>Lot description</h5>
         <div class = "form-group">
-            <textarea class="form-control" ng-model="description"></textarea>
+            <textarea class="form-control" ng-model="lot.description"></textarea>
         </div>
         <br>
 
@@ -16,20 +16,20 @@
                     Start price:
                     <div class="input-group">
                         <span class="input-group-addon">$</span>
-                        <input type="number" ng-model="starting_price" min="0" class="form-control currency" />
+                        <input type="number" ng-model="lot.starting_price" min="0" class="form-control currency" />
                     </div>
                 </label>
                 <label>
                     Buyout price:
                     <div class="input-group">
                         <span class="input-group-addon">$</span>
-                        <input type="number" ng-model="buyout_price" min={{start_price}} class="form-control currency" />
+                        <input type="number" ng-model="lot.buyout_price" min={{start_price}} class="form-control currency" />
                     </div>
                 </label>
                 <div class = "row">
                     <div class="col-xs-6">
                         <label for="tradingDuration"> Trading duration: </label>
-                        <select class="form-control" name="tradingDuration" ng-model="duration">
+                        <select class="form-control" name="tradingDuration" ng-model="lot.duration">
                           <option value="3">3 days</option>
                           <option value="5">5 days</option>
                           <option value="7">7 days</option>
@@ -39,7 +39,7 @@
                     </div>
                     <div class="col-xs-6">
                         <label for="category_id"> Category: </label>
-                        <select class="form-control" name="category_id" ng-model="category_id">
+                        <select class="form-control" name="category_id" ng-model="lot.category_id">
                           <option value="1">first </option>
                           <option value="2">second</option>
                           <option value="3">third</option>
