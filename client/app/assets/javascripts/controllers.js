@@ -598,7 +598,6 @@ angular.module('boo-controllers').controller('LotsCtrl', [
 		$scope.signedIn = Auth.isAuthenticated;
 		$scope.lots = lots.all;
 
-
     $scope.createLot = function() {
 		lots.create({title: $scope.title, description: $scope.description, owner_id: $scope.current_user.id,
 					category_id: $scope.category_id, starting_price: $scope.starting_price, current_price: $scope.starting_price,
@@ -609,12 +608,12 @@ angular.module('boo-controllers').controller('LotsCtrl', [
 	}]);
 
 angular.module('boo-controllers').controller('LotCtrl', [
-	'$scope', 'lots', 'Auth', 'posts',
-	function($scope, communities, Auth, posts){
-		Auth.currentUser().then(function (user){
+	'$scope', 'lots', 'Auth',
+	function($scope, lots, communities, Auth){
+		/*Auth.currentUser().then(function (user){
 			$scope.current_user = user;
 		});
-		$scope.signedIn = Auth.isAuthenticated;
+		$scope.signedIn = Auth.isAuthenticated;*/
 
-		$scope.lot = lot;
+		$scope.lot = lots.current;
 	}]);
