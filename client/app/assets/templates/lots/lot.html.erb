@@ -1,4 +1,4 @@
-<div class="panel panel-default col-xs-8">
+<div class="panel panel-default col-xs-6">
 	<div class="panel-heading">
 		Pictures
 	</div>
@@ -9,38 +9,43 @@
     	<c ng-hide="lot.pictures.length" class="center">No pictures uploaded.</c>
 	</div>
 </div>
-<div class="panel panel-default col-xs-4">
-	<div class="panel-heading">
-		<h4>{{lot.title}}</h4>
-	</div>
-		<div class="panel-body">
-  			{{lot.description}}
+<div class="col-xs-6">
+	<div class="panel panel-default">
+		<div class="panel-heading">
+			<h4>{{lot.title}}</h4>
+		</div>
+			<div class="panel-body">
+	  			{{lot.description}}
 			</div>
-		<form ng-submit="createBid()" ng-show="current_user.id != lot.user_id">
-			<input type="number" ng-model="bid.price">
-			<button type="submit" class="btn btn-primary btn-sm">Bid</button>
+		<form class="row" ng-submit="createBid()" ng-show="current_user.id != lot.user_id">
+			<div class="col-xs-8">
+				<input class="form-control" type="number" ng-model="bid.price">
+			</div>
+			<div class="col-xs-2">
+				<button type="submit" class="btn btn-success btn-sm">Bid</button>
+			</div>
 		</form>
 	</div>
-</div>
-<div class="col-xs-4">
-	<timer end-time="lot.expires_at">
-		<table class="table table-striped">
-			<thead>
-				<tr>
-					<th style="text-align: center">Days</th>
-					<th style="text-align: center">Hours</th>
-					<th style="text-align: center">Minutes</th>
-					<th style="text-align: center">Seconds</th>
-				</tr>
-			</thead>
-			<tbody>
-				<tr>
-					<th style="text-align: center">{{days}}</th>
-					<th style="text-align: center">{{hours}}</th>
-					<th style="text-align: center">{{minutes}}</th>
-					<th style="text-align: center">{{seconds}}</th>
-				</tr>
-			</tbody>
-		</table>
-	</timer>
+	<div class="panel panel-primary"> 
+	    <timer end-time="lot.expires_at"> 
+	      <table class="table table-striped"> 
+	        <thead> 
+	          <tr> 
+	            <th style="text-align: center">Days</th> 
+	            <th style="text-align: center">Hours</th> 
+	            <th style="text-align: center">Minutes</th> 
+	            <th style="text-align: center">Seconds</th> 
+	          </tr> 
+	        </thead> 
+	        <tbody> 
+	          <tr> 
+	            <th style="text-align: center">{{days}}</th> 
+	            <th style="text-align: center">{{hours}}</th> 
+	            <th style="text-align: center">{{minutes}}</th> 
+	            <th style="text-align: center">{{seconds}}</th> 
+	          </tr> 
+	        </tbody> 
+	      </table> 
+	    </timer> 
+	</div> 
 </div>
