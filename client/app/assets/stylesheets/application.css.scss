@@ -337,3 +337,22 @@ small.text-muted {
 .font16{
   font-size: 16px;
 }
+
+.lot-form {
+  height: 100%;
+  opacity: 1;
+  padding: 40px;
+}
+
+.lot-form.ng-hide-add{
+  transition: all linear 0.3s;
+}
+
+.lot-form.ng-hide-remove {
+  transition: all linear 1s;
+}
+
+.lot-form.ng-hide {
+  height: 0%;
+  opacity: 0;
+}

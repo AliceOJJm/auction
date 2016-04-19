@@ -1,17 +1,16 @@
 <div class="well">
-
-    <form class="form-horizontal" role="form" ng-submit="createLot()">
-        <h4>Lot title</h4>
-        <div class="form-group" style="padding:14px;">
-            <input class="form-control" type="text" ng-model="lot.title" required></input>
-        </div>
-        <h5>Lot description</h5>
-        <div class = "form-group">
-            <textarea class="form-control" ng-model="lot.description" required></textarea>
-        </div>
-        <br>
-            <div>
-                <div class="col-xs-6">
+<input type="checkbox" ng-model="form_vision"></input>
+    <label>
+        Show form
+        <div class="lot-form" ng-show="form_vision"> 
+    </label>    
+        <form class="form-horizontal" role="form"  ng-submit="createLot()">
+            <div class="row">
+                <div class="col-xs-8">
+                    Title:
+                        <input type="text" ng-model="lot.title" class="form-control" required/>
+                </div>
+                <div class="col-xs-4">
                     <label>
                         Start price:
                         <div class="input-group">
@@ -20,40 +19,39 @@
                         </div>
                     </label>
                 </div>
-                <div class="col-xs-6">
-                    <label>
-                        Buyout price:
-                        <div class="input-group">
-                            <span class="input-group-addon">$</span>
-                            <input type="number" ng-model="lot.buyout_price" min={{start_price}} class="form-control currency" required/>
-                        </div>
-                    </label>
-                </div>
-                <div class = "row">
-                    <div class="col-xs-6">
-                        <label for="tradingDuration"> Trading duration: </label>
-                        <select class="form-control" name="tradingDuration" ng-model="lot.duration">
-                          <option value="3">3 days</option>
-                          <option value="5">5 days</option>
-                          <option value="7">7 days</option>
-                          <option value="10">10 days</option>
-                          <option value="14">14 days</option>
-                        </select><br>
-                    </div>
-                    <div class="col-xs-6">
-                        <label for="category_id"> Category: </label>
-                        <select class="form-control" name="category_id" ng-model="lot.category_id">
-                          <option value="1">first </option>
-                          <option value="2">second</option>
-                          <option value="3">third</option>
-                          <option value="4">fourth</option>
-                          <option value="5">fifth</option>
-                        </select><br>
-                    </div>
-                </div>
             </div>
-        <button class="btn btn-primary pull-right" type="submit">Add !</button>
-    </form>
+            <h5>Lot description</h5>
+            <div class = "form-group" style="padding: 15px">
+                <textarea rows="5" class="form-control" ng-model="lot.description" required></textarea>
+            </div>
+            <br>
+                <div>
+                    <div class = "row">
+                        <div class="col-xs-6">
+                            <label for="tradingDuration"> Trading duration: </label>
+                            <select class="form-control" name="tradingDuration" ng-model="lot.duration">
+                              <option value="3">3 days</option>
+                              <option value="5">5 days</option>
+                              <option value="7">7 days</option>
+                              <option value="10">10 days</option>
+                              <option value="14">14 days</option>
+                            </select><br>
+                        </div>
+                        <div class="col-xs-6">
+                            <label for="category_id"> Category: </label>
+                            <select class="form-control" name="category_id" ng-model="lot.category_id">
+                              <option value="1">first </option>
+                              <option value="2">second</option>
+                              <option value="3">third</option>
+                              <option value="4">fourth</option>
+                              <option value="5">fifth</option>
+                            </select><br>
+                        </div>
+                    </div>
+                </div>
+            <button class="btn btn-primary pull-right" type="submit">Add !</button>
+        </form>
+    </div>
 </div>
 
 
