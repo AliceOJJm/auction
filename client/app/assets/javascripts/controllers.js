@@ -609,7 +609,6 @@ angular.module('boo-controllers').controller('LotCtrl', [
 	'$scope', 'lots', 'Auth', 'bids',
 	function($scope, lots, Auth, bids){
     $scope.lot = lots.current;
-    debugger
     $scope.bid = {
       lot_id: $scope.lot.id
     };
