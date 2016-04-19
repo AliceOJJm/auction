@@ -19,12 +19,13 @@
 //= require angular-timer
 //= require momentjs
 //= require humanize-duration
+//= require angular-animate
 //= require_tree ../templates
 //= require_tree .
 
 window.host = 'http://localhost:3000';
 
-angular.module('boo', ['boo-factories', 'boo-controllers', 'ui-notification', 'ngTagsInput', 'angular-loading-bar', 'ui.router', 'ui.bootstrap', 'templates', 'Devise', 'ngFileUpload', 'xeditable', 'bootstrapLightbox', 'timer']);
+angular.module('boo', ['boo-factories', 'boo-controllers', 'ui-notification', 'ngTagsInput', 'angular-loading-bar', 'ui.router', 'ui.bootstrap', 'templates', 'Devise', 'ngFileUpload', 'xeditable', 'bootstrapLightbox', 'timer', 'ngAnimate']);
 
 function getCookie(name) {
   var matches = document.cookie.match(new RegExp(
