@@ -18,7 +18,6 @@ class BidsController < ApplicationController
     respond_to do |format|
       if @bid.save
         # move into callback
-        binding.pry
         lot.update(expires_at: DateTime.now.in_time_zone('UTC') + 1.hour) if lot.expires_at - Time.now < 20.minutes
         lot.update(current_price: @bid.price + lot.current_price)
 
