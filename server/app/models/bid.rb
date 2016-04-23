@@ -18,7 +18,6 @@ class Bid < ActiveRecord::Base
   validate :created_at_cannot_be_after_lot_expires_at, on: :create
 
   def created_at_cannot_be_after_lot_expires_at
-    binding.pry
     if self.lot.present? && DateTime.now.in_time_zone('UTC') > self.lot.expires_at
       errors.add(:creation_time, "can't be after lot's expiration time")
     end

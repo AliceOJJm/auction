@@ -18,11 +18,12 @@ class BidsController < ApplicationController
     respond_to do |format|
       if @bid.save
         # move into callback
-        lot.update(expires_at: Time.now + 1.hour) if lot.expires_at - Time.now < 20.minutes
+        binding.pry
+        lot.update(expires_at: DateTime.now.in_time_zone('UTC') + 1.hour) if lot.expires_at - Time.now < 20.minutes
         lot.update(current_price: @bid.price + lot.current_price)
 
         format.html { redirect_to @bid, notice: 'Bid was successfully created.' }
-        format.json { render :show, status: :created, location: @bid }
+        format.json { render :show, status: :created, location: lot_bid_url(id: @bid.id, lot_id: @bid.lot.id) }
       else
         format.html { render :new }
         format.json { render json: @bid.errors, status: :unprocessable_entity }

@@ -14,6 +14,7 @@ class LotsController < ApplicationController
   def create
     @lot = Lot.new(lot_params)
     @lot.expires_at = Time.now + params[:duration].to_i.days
+    @lot.current_price = @lot.starting_price
 
     respond_to do |format|
       if @lot.save
