@@ -20,12 +20,15 @@
 //= require momentjs
 //= require humanize-duration
 //= require angular-animate
+//= require Chart.js/Chart
+//= require angular-chart.js/dist/angular-chart
 //= require_tree ../templates
 //= require_tree .
 
 window.host = 'http://localhost:3000';
 
-angular.module('boo', ['boo-factories', 'boo-controllers', 'ui-notification', 'ngTagsInput', 'angular-loading-bar', 'ui.router', 'ui.bootstrap', 'templates', 'Devise', 'ngFileUpload', 'xeditable', 'bootstrapLightbox', 'timer', 'ngAnimate']);
+angular.module('boo', ['boo-factories', 'boo-controllers', 'ui-notification', 'ngTagsInput', 'angular-loading-bar', 'ui.router', 'ui.bootstrap', 
+						'templates', 'Devise', 'ngFileUpload', 'xeditable', 'bootstrapLightbox', 'timer', 'ngAnimate', 'chart.js']);
 
 function getCookie(name) {
   var matches = document.cookie.match(new RegExp(
