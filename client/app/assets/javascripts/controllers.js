@@ -610,19 +610,35 @@ angular.module('boo-controllers').controller('LotCtrl', [
 	function($scope, lots, Auth, bids){
     $scope.lot = lots.current;
     $scope.bid = {
-      lot_id: $scope.lot.id
+		lot_id: $scope.lot.id 
+ 	};
+    $scope.chart = {
+    	series: ['Current price'],
+    	data: [[]],
+    	labels: [],
+    	update_data: function(bid){
+    		this.data[0].push(bid.price);
+    		this.labels.push("");
+    	}
     };
-
-		Auth.currentUser().then(function (res){
-			$scope.current_user = res.user;
-      $scope.bid.user_id = res.user.id;
-		});
-		// $scope.signedIn = Auth.isAuthenticated;
     $scope.bids = bids.all;
+    $scope.bids.forEach(function(bid)
+		{
+			$scope.chart.data[0].push(bid.price);
+			$scope.chart.labels.push("");
+		}
+	);
+
+	Auth.currentUser().then(function (res){
+		$scope.current_user = res.user;
+  		$scope.bid.user_id = res.user.id;
+	});
+		// $scope.signedIn = Auth.isAuthenticated;
 
     $scope.createBid = function() {
       bids.create($scope.bid, $scope.lot.id, function(res) {
-        console.log(res);
+      	$scope.chart.update_data($scope.bid);
+      	console.log(res);
       });
     }
 	}]);

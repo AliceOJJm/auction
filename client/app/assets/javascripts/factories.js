@@ -525,9 +525,9 @@ angular.module('boo-factories').factory('bids', ['$http', function($http) {
 
   o.create = function(bid, lotId, callback) {
     return $http.post(window.host + '/lots/' + lotId + '/bids.json', bid).success(function(res) {
+      o.getAll();
       callback(res);
     })
   }
-
   return o;
 }]);
