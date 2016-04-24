@@ -1,0 +1,17 @@
+<div class="center">
+  <div class="panel panel-default">
+      <div class="panel-body">
+        Title:
+        <c class="lead">
+          <a editable-text="community.community.community.title" onaftersave="updateCommunity()">{{community.community.community.title}}</a>
+        </c>
+        <br>
+        <c>Aim: 
+          <a editable-text="community.community.community.aim" onaftersave="updateCommunity()">{{community.community.community.aim || "Add ..."}}</a></br>
+        </c>
+        <c>Description: <a editable-text="community.community.community.description" onaftersave="updateCommunity()">{{community.community.community.description || "Add ..."}}</a></c>
+        <br>
+        <button class='button button-raised button-caution' ng-click='destroy()'>Destroy community</button>
+      </div>
+   </div>
+ </div>

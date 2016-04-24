@@ -32,18 +32,9 @@ class UsersController < ApplicationController
   end
   
   def update
-    if (params[:avatar_url])
-      avatar_url = params[:avatar_url]
-    else
-      avatar = Picture.upload picture_params
-      avatar_url = avatar.url
-    end
-    @user.avatar_url = avatar_url
+    @user.avatar_url = params[:avatar_url] || Picture.upload(picture_params).url
     @user.save!
-    respond_to do |format|
-      format.html
-      format.json {render json: {avatar: avatar_url}}
-    end
+    render json: {avatar: @user.avatar_url}
   end 
   
   def edit
@@ -64,6 +55,6 @@ class UsersController < ApplicationController
   end
   
   def set_user
-    @user = User.find(params[:id])
+    @user = User.find(params[:id] || params[:user_id])
   end
 end

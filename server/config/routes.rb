@@ -6,6 +6,8 @@ Rails.application.routes.draw do
   devise_for :users, controllers: { registrations: 'registrations', sessions: 'sessions' }
   
   resources :users, only: [:show, :index, :edit, :update] do
+    post '/edit', to: 'users#edit'
+    get '/userpage_media', to: 'users#userpage_media'
     resources :subscribtions, only: [:create, :destroy, :edit]
     resources :friends, only: [:index]
     resources :posts do
@@ -28,13 +30,11 @@ Rails.application.routes.draw do
   end
   resource :tags
   resources :communities do
+    get '/join', to: 'communities#join'
+    get '/leave', to: 'communities#leave'
     resources :posts do
       post '/toggle_like', to: 'posts#toggle_like'
     end
   end
-  get '/communities/:id/join', to: 'communities#join'
-  get '/communities/:id/leave', to: 'communities#leave'
-  post '/users/:id/edit', to: 'users#edit'
-  get '/users/:id/userpage_media', to: 'users#userpage_media'
   get 'search', to: 'search#index'
 end

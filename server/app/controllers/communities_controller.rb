@@ -1,5 +1,5 @@
 class CommunitiesController < ApplicationController
-  #load_and_authorize_resource
+  before_filter :set_community, only: [:show, :join, :leave, :update, :destroy]
   
   def index
     @communities = []
@@ -18,7 +18,6 @@ class CommunitiesController < ApplicationController
   end
   
   def show
-    @community = Community.find params[:id]
     respond_to do |format|
       format.html
       format.json { render json: {community: @community, participants: @community.users, participates: (@community.users.include? current_user)}}
@@ -36,7 +35,6 @@ class CommunitiesController < ApplicationController
   end
   
   def join
-    @community = Community.find params[:id]
     @community.users << current_user
     respond_to do |format|
       format.html 
@@ -45,7 +43,6 @@ class CommunitiesController < ApplicationController
   end
   
   def leave
-    @community = Community.find params[:id]
     @community.users.destroy current_user
     respond_to do |format|
       format.html 
@@ -54,14 +51,33 @@ class CommunitiesController < ApplicationController
   end
   
   def update
-  end
+    if params[:avatar_url].present? || params[:picture].present?
+      @community.avatar_url = params[:avatar_url] || Picture.upload(picture_params).url
+      @community.save!
+      response = {avatar: @community.avatar_url}
+    else
+      @community.update(community_params)
+      response = {community: @community}
+    end
+    render json: response
+  end 
   
   def destroy
+    @community.destroy
+    render json: {status: 200}
   end
   
   private
   
+  def picture_params
+    params.require(:picture).permit!
+  end
+  
   def community_params
     params.require(:community).permit!
+  end
+
+  def set_community
+    @community = Community.find(params[:id] || params[:community_id])
   end
 end

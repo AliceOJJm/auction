@@ -127,6 +127,16 @@ function($stateProvider, $urlRouterProvider, $locationProvider) {
 			  }]
 			}
 	    })
+  .state('edit_community', {
+        url: '/communities/:id/edit',
+        templateUrl: 'communities/edit.html',
+          controller: 'EditCommunityCtrl',
+          resolve: {
+        postPromise: ['$stateParams', 'communities', function($stateParams, communities) {
+          return communities.get($stateParams.id);
+        }]
+      }
+      })
 	.state('myCommunities', {
 	      url: '/id:id/communities',
 	      templateUrl: 'communities/myCommunities.html',

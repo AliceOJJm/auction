@@ -562,10 +562,13 @@ function($scope, communities, $state, Auth){
 }]);
 
 angular.module('boo-controllers').controller('CommunityCtrl', [
-'$scope', 'communities', 'Notification', '$state', 'Auth', 'posts',
-function($scope, communities, Notification, $state, Auth, posts){
+'$scope', 'communities', 'Notification', '$state', 'Auth', 'posts', 'Upload',
+function($scope, communities, Notification, $state, Auth, posts, Upload){
   Auth.currentUser().then(function (user){
   	$scope.current_user = user;
+    $scope.$watch('avatar', function () {
+      $scope.uploadAvatar($scope.avatar);
+    });
   });
   $scope.signedIn = Auth.isAuthenticated;
   $scope.community = communities.current;
@@ -583,6 +586,50 @@ function($scope, communities, Notification, $state, Auth, posts){
     posts.addPost({postable_id: $scope.community.community.community.id, postable_type: 'Community', content: $scope.content});
     $scope.content = '';
   };
+  $scope.uploadAvatar = function(files){
+   if (files && files.length) {
+      for (var i = 0; i < files.length; i++) {
+          var file = files[i];
+          Upload.upload({
+          url: window.host + '/communities/' + $scope.community.community.community.id + '.json',
+          method: 'PUT',
+          file: file,
+          fileFormDataName: 'picture[file]',
+          formDataAppender: function(fd, key, val) {
+              if (angular.isArray(val)) {
+                  angular.forEach(val, function(v) {
+                      fd.append('picture['+key+']', v);
+                  });
+              } else {
+                  fd.append('picture['+key+']', val);
+              }
+          }
+        }).progress(function (evt) {
+              $scope.avatar.progress = parseInt(100.0 * evt.loaded / evt.total);
+          }).success(function (data) {
+            $scope.community.community.community.avatar_url = data.avatar;
+          });
+      }
+    }
+  };
+}]);
+
+angular.module('boo-controllers').controller('EditCommunityCtrl', [
+'$scope', 'communities', 'Notification', '$state', 'Auth',
+function($scope, communities, Notification, $state, Auth){
+  Auth.currentUser().then(function (user){
+    $scope.current_user = user;
+  });
+  $scope.signedIn = Auth.isAuthenticated;
+  $scope.community = communities.current;
+  $scope.destroy = function(){
+    if (confirm('Are you sure?')) {
+      communities.destroy();
+      $state.go('communities');
+      Notification.success("Community is destroyed");
+    }
+  }
+  $scope.updateCommunity = communities.update;
 }]);
 
 angular.module('boo-controllers').controller('LotsCtrl', [

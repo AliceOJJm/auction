@@ -161,8 +161,7 @@ angular.module('boo-factories').factory('audio', ['$http', '$sce',
 function($http, $sce){
   var o = {
     songs: [],
-    user_id: 0,
-    hi: "KIII!"
+    user_id: 0
   };
   
   o.getUsersSongs = function(id){
@@ -440,13 +439,13 @@ function($http){
   };
   
   o.getAll = function() {
-      return $http.get(window.host + '/communities.json').success(function(res){
-	      angular.copy(res, o.all);
-	    });
+    return $http.get(window.host + '/communities.json').success(function(res){
+	    angular.copy(res, o.all);
+	  });
   };
   
   o.get = function(id) {
-      return $http.get(window.host + '/communities/' + id + '.json').success(function(res){
+    return $http.get(window.host + '/communities/' + id + '.json').success(function(res){
       angular.copy(res, o.current);
     });
   };
@@ -462,23 +461,35 @@ function($http){
   };
   
   o.create = function(community, callback) {
-      return $http.post(window.host + '/communities.json', community).success(function(res){
-	      callback(res.id);
-	    });
+    return $http.post(window.host + '/communities.json', community).success(function(res){
+      callback(res.id);
+    });
   };
   
   o.join = function(user) {
-      return $http.get(window.host + '/communities/' + o.current.community.community.id + '/join.json').success(function(res){
-	      o.current.participates = true;
-	      o.current.participants.push(user);
-	    });
+    return $http.get(window.host + '/communities/' + o.current.community.community.id + '/join.json').success(function(res){
+      o.current.participates = true;
+      o.current.participants.push(user);
+    });
   };
   
   o.leave = function(user) {
-      return $http.get(window.host + '/communities/' + o.current.community.community.id + '/leave.json').success(function(res){
-	      o.current.participates = false;
-	      o.current.participants.splice(o.current.participants.indexOf(user), 1);
-	    });
+    return $http.get(window.host + '/communities/' + o.current.community.community.id + '/leave.json').success(function(res){
+      o.current.participates = false;
+      o.current.participants.splice(o.current.participants.indexOf(user), 1);
+    });
+  };
+
+  o.destroy = function() {
+    return $http.delete(window.host + '/communities/' + o.current.community.community.id + '.json').success(function(res){
+      o.current = {};
+    });
+  };
+
+  o.update = function() {
+    return $http.put(window.host + '/communities/' + o.current.community.community.id + '.json', {community: o.current.community.community}).success(function(res){
+      angular.copy(res, o.current);
+    });
   };
   
   return o;

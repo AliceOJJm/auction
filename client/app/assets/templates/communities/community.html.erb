@@ -59,7 +59,7 @@
     <div class="panel panel-default">
         <div class="panel-body">
           <p class="lead">{{community.community.community.title}}</p>
-          <a ng-href="/edit_profile" class="close glyphicon glyphicon-pencil" ng-show="current_user.user.id == community.community.community.owner_id"></a>
+          <a ng-href="/communities/{{community.community.community.id}}/edit" class="close glyphicon glyphicon-pencil" ng-show="current_user.user.id == community.community.community.owner_id"></a>
       {{community.community.community.aim}}<br>
       About: {{community.community.community.description}}<br>
           <c ng-show="user.user.birth_date">Birth date: {{user.user.birth_date | date}}</c>
