@@ -33,16 +33,16 @@ gem 'angular_rails_csrf'
 gem "paperclip"
 gem 'aws-sdk', '< 2.0'
 
-#gem 'sunspot_rails'
+group :development do
+  gem 'sunspot_rails'
+  gem 'sunspot_solr'
+end
 
 gem 'ruby-mp3info', require: 'mp3info'
 
 gem 'acts_as_commentable_with_threading'
 gem 'acts-as-taggable-on'
 gem 'socialization'
-
-gem 'elasticsearch-model'
-gem 'elasticsearch-rails'
 
 gem 'rack-cors', require: 'rack/cors'
 gem 'letter_opener', group: :development

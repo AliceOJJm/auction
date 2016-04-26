@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160418202050) do
+ActiveRecord::Schema.define(version: 20160426202100) do
 
   create_table "bids", force: :cascade do |t|
     t.integer  "lot_id",     limit: 4
@@ -176,18 +176,22 @@ ActiveRecord::Schema.define(version: 20160418202050) do
   end
 
   create_table "songs", force: :cascade do |t|
-    t.string   "url",             limit: 255
-    t.integer  "user_id",         limit: 4
-    t.string   "title",           limit: 255
-    t.string   "performer",       limit: 255
-    t.string   "genre",           limit: 255
-    t.datetime "created_at",                                null: false
-    t.datetime "updated_at",                                null: false
-    t.text     "metadata",        limit: 65535
-    t.integer  "attachable_id",   limit: 4
-    t.string   "attachable_type", limit: 255
-    t.integer  "owners",          limit: 4,     default: 1
-    t.integer  "likers_count",    limit: 4,     default: 0
+    t.string   "url",               limit: 255
+    t.integer  "user_id",           limit: 4
+    t.string   "title",             limit: 255
+    t.string   "performer",         limit: 255
+    t.string   "genre",             limit: 255
+    t.datetime "created_at",                                  null: false
+    t.datetime "updated_at",                                  null: false
+    t.text     "metadata",          limit: 65535
+    t.integer  "attachable_id",     limit: 4
+    t.string   "attachable_type",   limit: 255
+    t.integer  "owners",            limit: 4,     default: 1
+    t.integer  "likers_count",      limit: 4,     default: 0
+    t.string   "file_file_name",    limit: 255
+    t.string   "file_content_type", limit: 255
+    t.integer  "file_file_size",    limit: 4
+    t.datetime "file_updated_at"
   end
 
   add_index "songs", ["attachable_type", "attachable_id"], name: "index_songs_on_attachable_type_and_attachable_id", using: :btree
@@ -277,15 +281,19 @@ ActiveRecord::Schema.define(version: 20160418202050) do
   add_index "users_videos", ["video_id"], name: "index_users_videos_on_video_id", using: :btree
 
   create_table "videos", force: :cascade do |t|
-    t.string   "url",             limit: 255
-    t.integer  "user_id",         limit: 4
-    t.string   "title",           limit: 255
-    t.datetime "created_at",                              null: false
-    t.datetime "updated_at",                              null: false
-    t.integer  "attachable_id",   limit: 4
-    t.string   "attachable_type", limit: 255
-    t.integer  "owners",          limit: 4,   default: 1
-    t.integer  "likers_count",    limit: 4,   default: 0
+    t.string   "url",               limit: 255
+    t.integer  "user_id",           limit: 4
+    t.string   "title",             limit: 255
+    t.datetime "created_at",                                null: false
+    t.datetime "updated_at",                                null: false
+    t.integer  "attachable_id",     limit: 4
+    t.string   "attachable_type",   limit: 255
+    t.integer  "owners",            limit: 4,   default: 1
+    t.integer  "likers_count",      limit: 4,   default: 0
+    t.string   "file_file_name",    limit: 255
+    t.string   "file_content_type", limit: 255
+    t.integer  "file_file_size",    limit: 4
+    t.datetime "file_updated_at"
   end
 
   add_index "videos", ["attachable_type", "attachable_id"], name: "index_videos_on_attachable_type_and_attachable_id", using: :btree

@@ -20,4 +20,12 @@ class Lot < ActiveRecord::Base
 
   has_many :bids
   has_many :pictures, as: :attachable
+
+  searchable do
+    text :title, :description
+  end
+  
+  def self.fulltext_search search_by
+    Lot.search{fulltext search_by}.results
+  end
 end

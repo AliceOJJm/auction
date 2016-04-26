@@ -2,26 +2,26 @@
 #
 # Table name: songs
 #
-#  id              :integer          not null, primary key
-#  url             :string(255)
-#  user_id         :integer
-#  title           :string(255)
-#  performer       :string(255)
-#  genre           :string(255)
-#  created_at      :datetime         not null
-#  updated_at      :datetime         not null
-#  metadata        :text(65535)
-#  attachable_id   :integer
-#  attachable_type :string(255)
-#  owners          :integer          default("1")
-#  likers_count    :integer          default("0")
+#  id                :integer          not null, primary key
+#  url               :string(255)
+#  user_id           :integer
+#  title             :string(255)
+#  performer         :string(255)
+#  genre             :string(255)
+#  created_at        :datetime         not null
+#  updated_at        :datetime         not null
+#  metadata          :text(65535)
+#  attachable_id     :integer
+#  attachable_type   :string(255)
+#  owners            :integer          default("1")
+#  likers_count      :integer          default("0")
+#  file_file_name    :string(255)
+#  file_content_type :string(255)
+#  file_file_size    :integer
+#  file_updated_at   :datetime
 #
 
-require 'elasticsearch/model'
-
 class Song < ActiveRecord::Base
-  include Elasticsearch::Model
-  
   before_create :extract_metadata
   serialize :metadata
   
@@ -35,15 +35,13 @@ class Song < ActiveRecord::Base
   acts_as_taggable
   acts_as_likeable
   
-  #searchable do
-  #  text :title, :performer, boost: 5.0
-  #  text :genre
-  #end
+  searchable do
+    text :title, :performer, boost: 5.0
+    text :genre
+  end
   
   def self.fulltext_search search_by
-  #  Song.search{fulltext search_by}.results
-     response = Song.search search_by
-    response.results.map{|result| result._source}
+    Song.search{fulltext search_by}.results
   end
   
   private

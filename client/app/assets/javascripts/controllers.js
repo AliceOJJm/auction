@@ -385,12 +385,12 @@ function($scope, $rootScope, $state, Auth, search, videos){
 		var songs = [];
 		$scope.songs = search.results.songs;
 		for (var counter = 0; counter < $scope.songs.length; counter ++){
-			songs.push({title: $scope.songs[counter].title,
-				        artist: $scope.songs[counter].performer,
-			            mp3: $scope.songs[counter].url,
-			            id: $scope.songs[counter].id,
-			            likes: $scope.songs[counter].likers_count,
-			            url: window.host + '/songs/' + $scope.songs[counter].id + '.json'});
+			songs.push({title: $scope.songs[counter].song.title,
+				        artist: $scope.songs[counter].song.performer,
+			            mp3: $scope.songs[counter].song.url,
+			            id: $scope.songs[counter].song.id,
+			            likes: $scope.songs[counter].song.likers_count,
+			            url: window.host + '/songs/' + $scope.songs[counter].song.id + '.json'});
 		}
 		return songs;
 	};
@@ -401,7 +401,9 @@ function($scope, $rootScope, $state, Auth, search, videos){
 	};
 	
 	$rootScope.$watch('results', function () {
-    $scope.myPlaylist.setPlaylist(getPlaylist());
+    if (search.results.songs.length){
+      $scope.myPlaylist.setPlaylist(getPlaylist());
+    }
   });
 
 	Auth.currentUser().then(function (user){

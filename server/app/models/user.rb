@@ -27,10 +27,7 @@
 #  likees_count           :integer          default("0")
 #
 
-require 'elasticsearch/model'
-
 class User < ActiveRecord::Base
-  include Elasticsearch::Model
   devise :database_authenticatable, :registerable, :confirmable,
          :recoverable, :trackable, :validatable
          
@@ -63,15 +60,13 @@ class User < ActiveRecord::Base
 
   has_many :bids
   
-  #searchable do
-  #  text :first_name, :last_name, boost: 5.0
-  #  text :email
-  #end
+  searchable do
+    text :first_name, :last_name, boost: 5.0
+    text :email
+  end
   
   def self.fulltext_search search_by
-    #User.search{fulltext search_by}.results
-    response = User.search search_by
-    response.results.map{|result| result._source}
+    User.search{fulltext search_by}.results
   end
   
   def subscribed?(leader)

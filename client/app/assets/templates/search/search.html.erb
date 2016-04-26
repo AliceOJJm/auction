@@ -4,7 +4,7 @@
 <div ng-repeat="user in results.people" class="panel panel-default">
   <div class="panel-body">
 	  <div class="col-md-2">
-		<user-panel user=user></user-panel>
+		<user-panel user=user.user></user-panel>
 	  </div>                         
   </div>
 </div>
@@ -70,5 +70,5 @@
 </div>
 <div ng-show = "results.posts && results.posts.length != 0"><h4 align = center>Posts:</h4></div>
 <div class="center-post" ng-repeat="post in results.posts | orderBy: '-post.updated_at'">
-	<post-panel post=post></post-panel>
+	<post-panel post=post.post></post-panel>
 </div>

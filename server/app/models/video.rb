@@ -14,11 +14,7 @@
 #  likers_count    :integer          default("0")
 #
 
-require 'elasticsearch/model'
-
 class Video < ActiveRecord::Base
-  include Elasticsearch::Model
-  
   has_and_belongs_to_many :users
   belongs_to :attachable, polymorphic: true
   
@@ -30,13 +26,11 @@ class Video < ActiveRecord::Base
   acts_as_likeable
   acts_as_commentable
   
-  #searchable do
-  #  text :title, boost: 5.0
-  #end
+  searchable do
+    text :title, boost: 5.0
+  end
   
   def self.fulltext_search search_by
-  #  Video.search{fulltext search_by}.results
-     response = Video.search search_by
-    response.results.map{|result| result._source}
+    Video.search{fulltext search_by}.results
   end
 end
