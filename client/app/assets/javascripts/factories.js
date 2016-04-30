@@ -547,3 +547,23 @@ angular.module('boo-factories').factory('bids', ['$http', function($http) {
   }
   return o;
 }]);
+
+angular.module('boo-factories').factory('categories', ['$http', function($http) {
+  var o = {
+    all: []
+  }
+
+  o.getAll = function() {
+    return $http.get(window.host + '/categories.json').success(function(res) {
+      angular.copy(res, o.all);
+    })
+  };
+
+  o.create = function(category, callback) {
+    return $http.post(window.host + '/categories.json', category).success(function(res) {
+      o.getAll();
+      callback(res);
+    })
+  }
+  return o;
+}]);

@@ -637,7 +637,7 @@ function($scope, communities, Notification, $state, Auth){
 angular.module('boo-controllers').controller('LotsCtrl', [
 	'$scope', 'lots',
 	'$state',
-	'Auth',
+	'Auth', 'categories',
 	function($scope, lots, $state, Auth){
     $scope.lot = {};
 		Auth.currentUser().then(function (response){
@@ -646,11 +646,13 @@ angular.module('boo-controllers').controller('LotsCtrl', [
 		});
 		$scope.signedIn = Auth.isAuthenticated;
 		$scope.lots = lots.all;
+    $scope.categories = categories.all;
+
 
     $scope.createLot = function() {
-		lots.create($scope.lot, function(id){
-			$state.go('lot', {id: id});
-		});
+  		lots.create($scope.lot, function(id){
+  			$state.go('lot', {id: id});
+  		});
     }
 	}]);
 
