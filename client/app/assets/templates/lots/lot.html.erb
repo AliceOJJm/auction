@@ -8,6 +8,29 @@
 		</div>
     	<c ng-hide="lot.pictures.length" class="center">No pictures uploaded.</c>
 	</div>
+	<timeline>
+		<timeline-event ng-repeat="bid in bids.reverse()" side="left">
+		  <timeline-badge class="success" ng-if="bid.is_final == 0">
+		      <i class="glyphicon glyphicon-check"></i>
+		  </timeline-badge>
+		  <timeline-badge class="danger" ng-if="bid.is_final == 1">
+		      <i class="glyphicon glyphicon-check"></i>
+		  </timeline-badge>
+		  <timeline-panel class="primary">
+		      <timeline-heading>
+		          <h4><b>Price: {{bid.price}}</b></h4>
+		      </timeline-heading>
+		      <div class="row">
+		          <div class="col-sm-4">
+		              time: {{bid.created_at}}
+		          </div>
+		          <div class="col-sm-4">
+		              id: {{bid.user_id}}
+		          </div>
+		      </div>
+		  </timeline-panel>
+		</timeline-event>
+	</timeline>
 </div>
 <div class="col-xs-6">
 	<div class="panel panel-default">

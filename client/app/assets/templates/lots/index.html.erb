@@ -4,7 +4,7 @@
     <div class="lot-form">    
         <form class="form-horizontal" role="form"  ng-submit="createLot()">
             <div class="row">
-                <div class="col-xs-8">
+                <div class="col-xs-6">
                     Title:
                         <input type="text" ng-model="lot.title" class="form-control" required/>
                 </div>
@@ -15,6 +15,15 @@
                             <span class="input-group-addon">$</span>
                             <input type="number" ng-model="lot.starting_price" min="0" class="form-control currency" required/>
                         </div>
+                    </label>
+                </div>
+                <div class="col-xs-2">
+                    <label>
+                        Lot type:
+                        <select class="form-control" name="auctionType" ng-model="lot.lot_type">
+                          <option value="1" selected>Raising</option>
+                          <option value="2">Redusing</option>
+                        </select>   
                     </label>
                 </div>
             </div>
