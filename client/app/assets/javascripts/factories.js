@@ -535,9 +535,14 @@ angular.module('boo-factories').factory('bids', ['$http', function($http) {
   };
 
   o.create = function(bid, lotId, callback) {
-    return $http.post(window.host + '/lots/' + lotId + '/bids.json', bid).success(function(res) {
+    return $http.post(window.host + '/lots/' + lotId + '/bids.json', bid).then(function(res) {
       o.getAll();
       callback(res);
+    },
+    function(res) {
+      if(res.status == 422) {
+        // TODO notify user about fail
+      }
     })
   }
   return o;
