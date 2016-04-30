@@ -22,13 +22,14 @@
 //= require angular-animate
 //= require Chart.js/Chart
 //= require angular-chart.js/dist/angular-chart
+//= require angular-timeline/dist/angular-timeline
 //= require_tree ../templates
 //= require_tree .
 
 window.host = 'http://localhost:3000';
 
 angular.module('boo', ['boo-factories', 'boo-controllers', 'ui-notification', 'ngTagsInput', 'angular-loading-bar', 'ui.router', 'ui.bootstrap', 
-						'templates', 'Devise', 'ngFileUpload', 'xeditable', 'bootstrapLightbox', 'timer', 'ngAnimate', 'chart.js']);
+						'templates', 'Devise', 'ngFileUpload', 'xeditable', 'bootstrapLightbox', 'timer', 'ngAnimate', 'chart.js','angular-timeline']);
 
 function getCookie(name) {
   var matches = document.cookie.match(new RegExp(
@@ -309,8 +310,11 @@ function($stateProvider, $urlRouterProvider, $locationProvider) {
 		  postPromise: ['$stateParams', 'lots', function($stateParams, lots) {
 			  return lots.get($stateParams.id);
 		  }],
-      allBids: ['$stateParams', 'bids', function($stateParams, bids) {
-        return bids.getAll($stateParams.id);
+	      allBids: ['$stateParams', 'bids', function($stateParams, bids) {
+	        return bids.getAll($stateParams.id);
+	      }],
+      allUsers: ['users', function(users) {
+        return users.getAll();
       }]
 	  }
 	});
