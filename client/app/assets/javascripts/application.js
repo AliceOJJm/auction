@@ -295,7 +295,10 @@ function($stateProvider, $urlRouterProvider, $locationProvider) {
 	  resolve: {
 		  postPromise: ['lots', function(lots) {
 			  return lots.getAll();
-		  }]
+		  }],
+      allCategories: ['categories', function(categories) {
+        return categories.getAll();
+      }]
 	  }
 	})
 	.state('lot', {

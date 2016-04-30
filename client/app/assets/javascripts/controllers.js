@@ -638,7 +638,7 @@ angular.module('boo-controllers').controller('LotsCtrl', [
 	'$scope', 'lots',
 	'$state',
 	'Auth', 'categories',
-	function($scope, lots, $state, Auth){
+	function($scope, lots, $state, Auth, categories){
     $scope.lot = {};
 		Auth.currentUser().then(function (response){
 			$scope.current_user = response.user;
