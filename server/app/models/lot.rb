@@ -15,6 +15,12 @@
 #
 
 class Lot < ActiveRecord::Base
+  extend Enumerize
+
+  enumerize :lot_type, :in => {
+    raising: 1, reducing: 2
+  }, scope: true, default: :raising, predicates: true
+
   belongs_to :category
   belongs_to :user
 
@@ -27,5 +33,10 @@ class Lot < ActiveRecord::Base
   
   def self.fulltext_search search_by
     Lot.search{fulltext search_by}.results
+  end
+
+  def update_price(bid_price)
+    updated_price = if raising? then current_price + bid_price else current_price - bid_price end
+    update(current_price: updated_price)
   end
 end

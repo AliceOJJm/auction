@@ -17,9 +17,9 @@ class BidsController < ApplicationController
 
     respond_to do |format|
       if @bid.save
-        # move into callback
+        # TODO move into callback
         lot.update(expires_at: DateTime.now.in_time_zone('UTC') + 1.hour) if lot.expires_at - Time.now < 20.minutes
-        lot.update(current_price: @bid.price + lot.current_price)
+        lot.update_price(@bid.price)
 
         format.html { redirect_to @bid, notice: 'Bid was successfully created.' }
         format.json { render :show, status: :created, location: lot_bid_url(id: @bid.id, lot_id: @bid.lot.id) }

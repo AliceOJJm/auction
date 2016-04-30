@@ -13,6 +13,8 @@ server/tmp
 server/public/system
 server/coverage/
 server/spec/tmp
+server/solr
+server/.bundle
 
 server/config/database.yml
 client/config/database.yml
