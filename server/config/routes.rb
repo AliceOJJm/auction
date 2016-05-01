@@ -1,6 +1,7 @@
 Rails.application.routes.draw do
   resources :lots do
     resources :bids
+    get 'participants'
     get '/pictures', to: 'lots#pictures'
   end
   resources :categories

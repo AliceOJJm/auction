@@ -1,5 +1,5 @@
 class LotsController < ApplicationController
-  before_action :set_lot, only: [:show, :update, :destroy, :pictures]
+  before_action :set_lot, only: [:show, :update, :destroy, :pictures, :participants]
 
   # GET /lots.json
   def index
@@ -58,6 +58,15 @@ class LotsController < ApplicationController
     respond_to do |format|
       format.html
       format.json { render json: pictures}
+    end
+  end
+
+  def participants
+    user_ids = @lot.bids.pluck(:user_id)
+    # TODO pluck necessary fields
+    users = User.where(id: user_ids)
+    respond_to do |format|
+      format.json { render json: users }
     end
   end
 
