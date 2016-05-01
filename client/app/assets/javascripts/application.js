@@ -59,7 +59,7 @@ angular.module('boo').config([
 angular.module('boo').config(function (LightboxProvider) {
   LightboxProvider.templateUrl = 'lightboxGallery.html';
   LightboxProvider.getImageUrl = function (picture) {
-    return picture.picture.picture.url;
+    return picture.picture.url || picture.picture.picture.url;
   };
 });
 
@@ -82,15 +82,15 @@ function($stateProvider, $urlRouterProvider, $locationProvider) {
 	        controller: 'UserpageCtrl',
 	        resolve: {
 	          postPromise: ['$stateParams', 'posts', function($stateParams, posts) {
-			    return posts.getUsersPosts($stateParams.id);
-			  }],
-			  user: ['$stateParams', 'users', function($stateParams, users) {
-			    return users.getUser($stateParams.id);
-			  }],
-			  media: ['$stateParams', 'users', function($stateParams, users) {
-			    return users.getUserpageMedia($stateParams.id);
-			  }]
-			}
+			        return posts.getUsersPosts($stateParams.id);
+    			  }],
+    			  user: ['$stateParams', 'users', function($stateParams, users) {
+    			    return users.getUser($stateParams.id);
+    			  }],
+    			  media: ['$stateParams', 'users', function($stateParams, users) {
+    			    return users.getUserpageMedia($stateParams.id);
+    			  }]
+			    }
 	    })
 	.state('mail', {
 	      url: '/mail',
@@ -122,12 +122,34 @@ function($stateProvider, $urlRouterProvider, $locationProvider) {
 	      templateUrl: 'communities/community.html',
 	        controller: 'CommunityCtrl',
 	        resolve: {
-			  postPromise: ['$stateParams', 'communities', 'posts', function($stateParams, communities, posts) {
-          posts.getCommunitiesPosts($stateParams.id)
-			  	return communities.get($stateParams.id);
-			  }]
-			}
+    			  postPromise: ['$stateParams', 'communities', 'posts', function($stateParams, communities, posts) {
+              posts.getCommunitiesPosts($stateParams.id)
+    			  	return communities.get($stateParams.id);
+    			  }]
+  			  }  
 	    })
+  .state('community_pictures', {
+      url: '/communities/:id/pictures',
+      templateUrl: 'pictures/index.html',
+      controller: 'CommunityPicturesCtrl',
+      resolve: {
+        postPromise: ['$stateParams', 'communities', 'pictures', function($stateParams, communities, pictures) {
+          communities.get($stateParams.id);
+          return pictures.getCommunitiesPictures($stateParams.id);
+        }]
+      }
+    })
+  .state('lot_pictures', {
+      url: '/lots/:id/pictures',
+      templateUrl: 'pictures/index.html',
+      controller: 'LotPicturesCtrl',
+      resolve: {
+        postPromise: ['$stateParams', 'lots', 'pictures', function($stateParams, lots, pictures) {
+          lots.get($stateParams.id);
+          return pictures.getLotsPictures($stateParams.id);
+        }]
+      }
+    })
   .state('edit_community', {
         url: '/communities/:id/edit',
         templateUrl: 'communities/edit.html',
@@ -193,22 +215,22 @@ function($stateProvider, $urlRouterProvider, $locationProvider) {
       controller: 'FriendsCtrl',
       resolve: {
       	  user: ['$stateParams', 'users', function($stateParams, users) {
-		    return users.getUser($stateParams.id);
-		  }],
-		  friends: ['$stateParams', 'users', function($stateParams, users) {
-		    return users.getUsersFriends($stateParams.id);
-		  }]
-		}
+    		    return users.getUser($stateParams.id);
+    		  }],
+    		  friends: ['$stateParams', 'users', function($stateParams, users) {
+    		    return users.getUsersFriends($stateParams.id);
+    		  }]
+    	}
     })
     .state('pictures', {
       url: '/id:id/pictures',
       templateUrl: 'pictures/index.html',
       controller: 'PicturesCtrl',
       resolve: {
-		  postPromise: ['$stateParams', 'pictures', function($stateParams, pictures) {
-		    return pictures.getUsersPictures($stateParams.id);
-		  }]
-		}
+  		  postPromise: ['$stateParams', 'pictures', function($stateParams, pictures) {
+  		    return pictures.getUsersPictures($stateParams.id);
+  		  }]
+  		}
     })
     .state('music', {
       url: '/id:id/audio',
@@ -332,7 +354,8 @@ angular.module('boo').directive('postPanel', function() {
     restrict: 'E', 
     scope: { 
       post: '=',
-      current_user: "="
+      current_user: "=",
+      canmanage: "="
     }, 
     templateUrl: 'posts/_index.html' 
   }; 

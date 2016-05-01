@@ -1,5 +1,5 @@
 class CommunitiesController < ApplicationController
-  before_filter :set_community, only: [:show, :join, :leave, :update, :destroy]
+  before_filter :set_community, only: [:show, :join, :leave, :update, :destroy, :pictures]
   
   def index
     @communities = []
@@ -20,7 +20,7 @@ class CommunitiesController < ApplicationController
   def show
     respond_to do |format|
       format.html
-      format.json { render json: {community: @community, participants: @community.users, participates: (@community.users.include? current_user)}}
+      format.json { render json: {community: @community, pictures: @community.pictures.limit(3), participants: @community.users.order("RAND(id)"), participates: (@community.users.include? current_user)}}
     end
   end
   
@@ -66,7 +66,19 @@ class CommunitiesController < ApplicationController
     @community.destroy
     render json: {status: 200}
   end
-  
+
+  def pictures
+    pictures = Array.new
+    @community.pictures.order(created_at: :desc).each do |picture|
+      root_comments = User.add_names_pics picture.root_comments
+      pictures << {picture: picture, root_comments: root_comments, tags: picture.tag_list.map{|tag| {text: tag}}}
+    end
+    respond_to do |format|
+      format.html
+      format.json { render json: pictures}
+    end
+  end
+
   private
   
   def picture_params

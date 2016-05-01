@@ -145,10 +145,10 @@ angular.module('bootstrapLightbox').provider('Lightbox', function () {
 	
     Lightbox.modalInstance = null;
     
-    Lightbox.openModal = function (newImages, newIndex) {
+    Lightbox.openModal = function (newImages, newIndex, can_manage) {
       Lightbox.images = newImages;
       Lightbox.setImage(newIndex);
-
+      Lightbox.can_manage = can_manage;
       // store the modal instance so we can close it manually if we need to
       Lightbox.modalInstance = $modal.open({
         'templateUrl': Lightbox.templateUrl,
@@ -199,7 +199,10 @@ angular.module('bootstrapLightbox').provider('Lightbox', function () {
 	
 	Lightbox.addComment = function(){
 		comments.addComment(Lightbox.picture.picture.picture.id, Lightbox.picture.picture, Lightbox.comment, "picture", function(comment){
-			Lightbox.picture.root_comments.push(comment);
+			if (!Lightbox.picture.root_comments){
+        Lightbox.picture.root_comments = [];
+      }
+      Lightbox.picture.root_comments.push(comment);
 		});
 		Lightbox.comment = "";
 	};
@@ -213,7 +216,7 @@ angular.module('bootstrapLightbox').provider('Lightbox', function () {
     };
 	
 	Lightbox.like = function(){
-		likes.like(Lightbox.picture, "picture", function(increment){
+		likes.like_picture(Lightbox.picture, function(increment){
 			if(increment){
 				Lightbox.picture.picture.picture.likers_count ++;
 			}else{
@@ -261,7 +264,7 @@ angular.module('bootstrapLightbox').provider('Lightbox', function () {
 		
 		Auth.currentUser().then(function (user){
 			Lightbox.current_user_id = user.user.id;
-	    });
+	  });
 	    
 		Lightbox.picture = picture;
         Lightbox.imageUrl = imageUrl;

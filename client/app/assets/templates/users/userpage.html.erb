@@ -110,7 +110,7 @@
     </div>
    	<div ng-show = "posts.length == 0"><h4 align = center>No posts</h4></div>
 	<div ng-repeat="post in posts | orderBy: '-post.post.updated_at'">
-		<post-panel post=post></post-panel>
+		<post-panel post=post canmanage=can_manage></post-panel>
     </div>
  </div>
 </div>

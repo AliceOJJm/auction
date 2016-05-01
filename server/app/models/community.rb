@@ -17,6 +17,7 @@ class Community < ActiveRecord::Base
   belongs_to :owner, class_name: 'User'
   has_and_belongs_to_many :users
   has_many :posts, as: :postable
+  has_many :pictures, as: :attachable
 
   searchable do
     text :title, :aim, boost: 5.0

@@ -241,22 +241,116 @@ function($scope, Auth, videos, Upload, tags, comments, likes){
   };
 }]);
 
+angular.module('boo-controllers').controller('CommunityPicturesCtrl', [
+'$scope', 'Auth', 'Upload', 'pictures', 'Lightbox', 'communities',
+function($scope, Auth, Upload, pictures, Lightbox, communities){
+  Auth.currentUser().then(function (user){
+    $scope.user = user.user;
+    $scope.community = communities.current.community.community
+    $scope.can_upload = ($scope.community.owner_id == $scope.user.id);
+    $scope.$watch('files', function () {
+      $scope.uploadPictures($scope.files, $scope.community.id);
+    }); 
+  });  
+  $scope.pictures = pictures.pictures;
+  $scope.openLightboxModal = function (index) {
+    Lightbox.openModal($scope.pictures, index, $scope.can_upload);
+  };
+  $scope.deletePicture = pictures.deletePicture;
+ 
+  $scope.uploadPictures = function(files, community_id){
+    if (files && files.length) {
+      for (var i = 0; i < files.length; i++) {
+          var file = files[i];
+          Upload.upload({
+          url: window.host + '/pictures.json',
+          method: 'POST',
+          file: file,
+          fields: { 'attachable_id': community_id, 'attachable_type': 'Community'},
+          fileFormDataName: 'picture[file]',
+          formDataAppender: function(fd, key, val) {
+              if (angular.isArray(val)) {
+                  angular.forEach(val, function(v) {
+                      fd.append('picture['+key+']', v);
+                  });
+              } else {
+                  fd.append('picture['+key+']', val);
+              }
+          }
+        }).progress(function (evt) {
+              file.progress = parseInt(100.0 * evt.loaded / evt.total);
+          }).success(function (data) {
+            pictures.addPicture({picture: {picture: data.picture}});
+            $scope.files.shift();
+          });
+      }
+    }
+  };
+}]);
+
+angular.module('boo-controllers').controller('LotPicturesCtrl', [
+'$scope', 'Auth', 'Upload', 'pictures', 'Lightbox', 'lots',
+function($scope, Auth, Upload, pictures, Lightbox, lots){
+  Auth.currentUser().then(function (user){
+    $scope.user = user.user;
+    $scope.lot = lots.current
+    $scope.can_upload = ($scope.lot.user_id == $scope.user.id);
+    $scope.$watch('files', function () {
+      $scope.uploadPictures($scope.files, $scope.lot.id);
+    }); 
+  });  
+  $scope.pictures = pictures.pictures;
+  $scope.openLightboxModal = function (index) {
+    Lightbox.openModal($scope.pictures, index, $scope.can_upload);
+  };
+  $scope.deletePicture = pictures.deletePicture;
+ 
+  $scope.uploadPictures = function(files, lot_id){
+    if (files && files.length) {
+      for (var i = 0; i < files.length; i++) {
+          var file = files[i];
+          Upload.upload({
+          url: window.host + '/pictures.json',
+          method: 'POST',
+          file: file,
+          fields: { 'attachable_id': lot_id, 'attachable_type': 'Lot'},
+          fileFormDataName: 'picture[file]',
+          formDataAppender: function(fd, key, val) {
+              if (angular.isArray(val)) {
+                  angular.forEach(val, function(v) {
+                      fd.append('picture['+key+']', v);
+                  });
+              } else {
+                  fd.append('picture['+key+']', val);
+              }
+          }
+        }).progress(function (evt) {
+              file.progress = parseInt(100.0 * evt.loaded / evt.total);
+          }).success(function (data) {
+            pictures.addPicture({picture: {picture: data.picture}});
+            $scope.files.shift();
+          });
+      }
+    }
+  };
+}]);
+
 angular.module('boo-controllers').controller('PicturesCtrl', [
 '$scope', 'Auth', 'Upload', 'pictures', 'Lightbox',
 function($scope, Auth, Upload, pictures, Lightbox){
   Auth.currentUser().then(function (user){
     $scope.user = user.user;
+    $scope.can_upload = (pictures.user_id == $scope.user.id);
     $scope.$watch('files', function () {
       $scope.uploadPictures($scope.files, $scope.user.id);
     }); 
   });
 	
 	$scope.openLightboxModal = function (index) {
-	  Lightbox.openModal($scope.pictures, index);
+	  Lightbox.openModal($scope.pictures, index, $scope.can_upload);
 	};
 	  
   $scope.pictures = pictures.pictures;
-	$scope.user_id = pictures.user_id;
 	
 	$scope.deletePicture = pictures.deletePicture;
  
@@ -564,14 +658,18 @@ function($scope, communities, $state, Auth){
 }]);
 
 angular.module('boo-controllers').controller('CommunityCtrl', [
-'$scope', 'communities', 'Notification', '$state', 'Auth', 'posts', 'Upload',
-function($scope, communities, Notification, $state, Auth, posts, Upload){
+'$scope', 'communities', 'Notification', '$state', 'Auth', 'posts', 'Upload', 'Lightbox',
+function($scope, communities, Notification, $state, Auth, posts, Upload, Lightbox){
   Auth.currentUser().then(function (user){
   	$scope.current_user = user;
+    $scope.can_manage = (communities.current.community.community.owner_id == $scope.current_user.user.id);
     $scope.$watch('avatar', function () {
       $scope.uploadAvatar($scope.avatar);
     });
   });
+  $scope.openLightboxModal = function (index) {
+    Lightbox.openModal($scope.community.pictures, index);
+  };
   $scope.signedIn = Auth.isAuthenticated;
   $scope.community = communities.current;
   $scope.join = function(){
@@ -614,6 +712,7 @@ function($scope, communities, Notification, $state, Auth, posts, Upload){
       }
     }
   };
+  $scope.random_users = $scope.community.participants.slice(0, 3);
 }]);
 
 angular.module('boo-controllers').controller('EditCommunityCtrl', [

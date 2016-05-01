@@ -13,7 +13,7 @@
 
       <a ng-href="{{Lightbox.imageUrl}}" target="_blank"
           class="btn btn-xs btn-default" title="Open in new tab" translate>
-        Open image in new tab
+        Open original
       </a>
 
       <a class="btn btn-xs btn-default" ng-click="Lightbox.nextImage()" translate>
@@ -35,9 +35,9 @@
     <!-- image -->
     <img ng-if='!Lightbox.showVideo' lightbox-src="{{Lightbox.imageUrl}}" ng-click="Lightbox.nextImage()">
   </div>
-  <button ng-show="Lightbox.current_user_id == Lightbox.picture.picture.picture.user_id" ng-click="Lightbox.deletePicture()">Delete</button>
-  <button ng-show="Lightbox.current_user_id == Lightbox.picture.picture.picture.user_id" ng-click="Lightbox.setAvatar()">Set as avatar</button>
-    <tags-input ng-disabled="Lightbox.current_user_id != Lightbox.picture.picture.picture.user_id" ng-model="Lightbox.picture.tags" on-tag-removed="Lightbox.deleteTag($tag)" on-tag-added="Lightbox.addTag($tag)" class="ti-input-sm">
+  <button ng-show="Lightbox.can_manage" ng-click="Lightbox.deletePicture()">Delete</button>
+  <button ng-show="Lightbox.can_manage" ng-click="Lightbox.setAvatar()">Set as avatar</button>
+    <tags-input ng-disabled="!Lightbox.can_manage" ng-model="Lightbox.picture.tags" on-tag-removed="Lightbox.deleteTag($tag)" on-tag-added="Lightbox.addTag($tag)" class="ti-input-sm">
 	  <auto-complete source="Lightbox.loadTags($query)"></auto-complete>
 	</tags-input>
     <form ng-show="Lightbox.current_user_id != 0" ng-submit="Lightbox.addComment()" role="form">

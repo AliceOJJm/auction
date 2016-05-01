@@ -1,13 +1,15 @@
 <div class="col-xs-6">
 	<div class="panel panel-default 12">
 		<div class="panel-heading">
-			Pictures
+			<a ng-href='/lots/{{lot.id}}/pictures'>Pictures</a>
 		</div>
 		<div class="panel-body">
-			<div  ng-repeat="picture in lot.pictures">
-				<img src="picture.url">
-			</div>
-	    	<c ng-hide="lot.pictures.length" class="center">No pictures uploaded.</c>
+			<div ng-repeat="picture in lot.pictures" class="thumb_div_preview">
+    		<a ng-click="openLightboxModal($index)">
+    			<img ng-src="{{picture.picture.thumb_url}}" class="thumb_img_preview"/>
+    		</a>
+    	</div>
+	    <c ng-hide="lot.pictures.length" class="center">No pictures uploaded.</c>
 		</div>
 	</div>
 	<div class="panel panel-default col-xs-12">

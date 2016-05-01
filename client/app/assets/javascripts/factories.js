@@ -202,13 +202,23 @@ function($http){
       o.user_id = id;
     });
   };
+  o.getCommunitiesPictures = function(id){
+    return $http.get(window.host + "/communities/" + id + "/pictures.json").success(function(res){
+      angular.copy(res, o.pictures);
+    });
+  };
+  o.getLotsPictures = function(id){
+    return $http.get(window.host + "/lots/" + id + "/pictures.json").success(function(res){
+      angular.copy(res, o.pictures);
+    });
+  };
   o.addPicture = function(picture){
   		o.pictures.push(picture);
   };
   
   o.deletePicture = function(picture, callback){
   	o.pictures.splice(o.pictures.indexOf(picture), 1);
-  	return $http.delete(window.host + "/users/" + picture.picture.user_id + '/pictures/' + picture.picture.id + '.json').success(function(res){
+  	return $http.delete(window.host + '/pictures/' + picture.picture.id + '.json').success(function(res){
       callback();
     });
   };
@@ -406,8 +416,6 @@ function($http, posts, search, videos){
 			  	}
 		    } 
   		};
-  	}else if (type == "picture"){
-  		url = window.host + '/users/' + likeable.picture.picture.user_id + '/pictures/' + likeable.picture.picture.id + '/toggle_like.json';
   	}else if (type == "video"){
   		url = window.host + '/videos/' + likeable.video.video.id + '/toggle_like.json';
   		process = function(increment){
@@ -428,6 +436,18 @@ function($http, posts, search, videos){
   		process(res.increment);
     });
   };
+
+  o.like_picture = function(likeable, callback){
+    var url = "";
+    var process;
+    url = window.host + '/pictures/' + likeable.picture.picture.id + '/toggle_like.json';
+    if(callback){
+      process = callback;
+    }
+    return $http.post(url).success(function(res){
+      process(res.increment);
+    });
+  };
   return o;
 }]);
 
@@ -435,7 +455,14 @@ angular.module('boo-factories').factory('communities', ['$http',
 function($http){
   var o = {
   	all: [],
-  	current: {}
+  	current: {},
+    media: {}
+  };
+
+  o.getCommunitypageMedia = function (id){
+    return $http.get(window.host + '/communities/' + id + '/media.json').success(function(res){
+      angular.copy(res, o.media);
+    });
   };
   
   o.getAll = function() {

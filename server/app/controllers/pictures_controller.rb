@@ -1,6 +1,6 @@
 class PicturesController < ApplicationController
   load_and_authorize_resource
-  
+
   def index
     pictures = Array.new
     User.find(params[:user_id]).pictures.order(:created_at => :desc).each do |picture|
@@ -22,9 +22,8 @@ class PicturesController < ApplicationController
   end
   
   def destroy
-    picture = Picture.find params[:id]
-    picture.file.destroy
-    picture.destroy
+    @picture.file.destroy
+    @picture.destroy
     respond_to do |format|
       format.html
       format.json { head :no_content}

@@ -1,6 +1,7 @@
 Rails.application.routes.draw do
   resources :lots do
     resources :bids
+    get '/pictures', to: 'lots#pictures'
   end
   resources :categories
   devise_for :users, controllers: { registrations: 'registrations', sessions: 'sessions' }
@@ -13,9 +14,7 @@ Rails.application.routes.draw do
     resources :posts do
       post '/toggle_like', to: 'posts#toggle_like'
     end
-    resources :pictures do
-      post '/toggle_like', to: 'pictures#toggle_like'
-    end
+    resources :pictures
     resources :dialogues
     resources :messages
   end
@@ -32,9 +31,13 @@ Rails.application.routes.draw do
   resources :communities do
     get '/join', to: 'communities#join'
     get '/leave', to: 'communities#leave'
+    get '/pictures', to: 'communities#pictures'
     resources :posts do
       post '/toggle_like', to: 'posts#toggle_like'
     end
   end
   get 'search', to: 'search#index'
+  resources :pictures do
+    post '/toggle_like', to: 'pictures#toggle_like'
+  end
 end

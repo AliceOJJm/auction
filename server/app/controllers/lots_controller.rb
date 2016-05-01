@@ -1,5 +1,5 @@
 class LotsController < ApplicationController
-  before_action :set_lot, only: [:show, :update, :destroy]
+  before_action :set_lot, only: [:show, :update, :destroy, :pictures]
 
   # GET /lots.json
   def index
@@ -49,10 +49,22 @@ class LotsController < ApplicationController
     end
   end
 
+  def pictures
+    pictures = Array.new
+    @lot.pictures.order(created_at: :desc).each do |picture|
+      root_comments = User.add_names_pics picture.root_comments
+      pictures << {picture: picture, root_comments: root_comments, tags: picture.tag_list.map{|tag| {text: tag}}}
+    end
+    respond_to do |format|
+      format.html
+      format.json { render json: pictures}
+    end
+  end
+
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_lot
-      @lot = Lot.find(params[:id])
+      @lot = Lot.find(params[:id] || params[:lot_id])
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.
