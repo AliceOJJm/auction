@@ -661,7 +661,7 @@ angular.module('boo-controllers').controller('LotCtrl', [
 	function($scope, lots, Auth, bids, users){
     $scope.lot = lots.current;
     $scope.users = users.all;
-    $scope.bids = bids.all;
+    $scope.bids = bids.all.reverse();
     $scope.bid = {
 		lot_id: $scope.lot.id 
  	};

@@ -1,36 +1,45 @@
-<div class="panel panel-default col-xs-6">
-	<div class="panel-heading">
-		Pictures
-	</div>
-	<div class="panel-body">
-		<div  ng-repeat="picture in lot.pictures">
-			<img src="picture.url">
+<div class="col-xs-6">
+	<div class="panel panel-default 12">
+		<div class="panel-heading">
+			Pictures
 		</div>
-    	<c ng-hide="lot.pictures.length" class="center">No pictures uploaded.</c>
+		<div class="panel-body">
+			<div  ng-repeat="picture in lot.pictures">
+				<img src="picture.url">
+			</div>
+	    	<c ng-hide="lot.pictures.length" class="center">No pictures uploaded.</c>
+		</div>
 	</div>
-	<timeline>
-		<timeline-event ng-repeat="bid in bids.reverse()" side="left">
-		  <timeline-badge class="success" ng-if="bid.is_final == 0">
-		      <i class="glyphicon glyphicon-check"></i>
-		  </timeline-badge>
-		  <timeline-badge class="danger" ng-if="bid.is_final == 1">
-		      <i class="glyphicon glyphicon-check"></i>
-		  </timeline-badge>
-		  <timeline-panel class="primary">
-		      <timeline-heading>
-		          <h4><b>Price: {{bid.price}}</b></h4>
-		      </timeline-heading>
-		      <div class="row">
-		          <div class="col-sm-4">
-		              time: {{bid.created_at}}
-		          </div>
-		          <div class="col-sm-4">
-		              id: {{bid.user_id}}
-		          </div>
-		      </div>
-		  </timeline-panel>
-		</timeline-event>
-	</timeline>
+	<div class="panel panel-default col-xs-12">
+		<div class="panel-heading">
+			Bids
+		</div>
+		<div class="panel-body">
+			<timeline>
+				<timeline-event ng-repeat="bid in bids" side="alternate">
+				  <timeline-badge class="success" ng-if="bid.is_final == 0">
+				      <i class="glyphicon glyphicon-check"></i>
+				  </timeline-badge>
+				  <timeline-badge class="danger" ng-if="bid.is_final == 1">
+				      <i class="glyphicon glyphicon-check"></i>
+				  </timeline-badge>
+				  <timeline-panel class="primary">
+				      <timeline-heading>
+				          <h4><b>Price: {{bid.price}}</b></h4>
+				      </timeline-heading>
+				      <div class="row">
+				          <div class="col-sm-4">
+				              time: {{bid.created_at}}
+				          </div>
+				          <div class="col-sm-4">
+				              id: {{bid.user_id}}
+				          </div>
+				      </div>
+				  </timeline-panel>
+				</timeline-event>
+			</timeline>
+		</div>
+	</div>
 </div>
 <div class="col-xs-6">
 	<div class="panel panel-default">
@@ -73,6 +82,4 @@
 	</div> 
 	<canvas id="line" class="chart chart-line" chart-data="chart.data" chart-labels="chart.labels"
 			 chart-legend="true" chart-series="chart.series"></canvas> 
-
-
 </div>
