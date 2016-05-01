@@ -312,9 +312,6 @@ function($stateProvider, $urlRouterProvider, $locationProvider) {
 		  }],
 	      allBids: ['$stateParams', 'bids', function($stateParams, bids) {
 	        return bids.getAll($stateParams.id);
-	      }],
-	      allUsers: ['users', function(users) {
-	        return users.getAll();
 	      }]
 	  }
 	});

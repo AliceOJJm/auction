@@ -4,7 +4,6 @@ angular.module('boo-factories').factory('users', ['$http',
 function($http){
   var o = {
   	user: {},
-    all: [],
     friends: [],
     subscribers: [],
     subscriptions: [],
@@ -15,12 +14,6 @@ function($http){
   o.getUser = function(id){
   	return $http.get(window.host + '/users/' + id + '.json').success(function(res){
       angular.copy(res, o.user);
-    });
-  };
-  
-  o.getAll = function(){
-    return $http.get(window.host + "/users.json").success(function(res){
-      angular.copy(res, o.all);
     });
   };
 
