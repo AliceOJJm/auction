@@ -4,6 +4,7 @@ angular.module('boo-factories').factory('users', ['$http',
 function($http){
   var o = {
   	user: {},
+    all: [],
     friends: [],
     subscribers: [],
     subscriptions: [],
@@ -17,6 +18,12 @@ function($http){
     });
   };
   
+  o.getAll = function(){
+    return $http.get(window.host + "/users.json").success(function(res){
+      angular.copy(res, o.all);
+    });
+  };
+
   o.updateUser = function(user){
   	return $http.post(window.host + "/users/" + user.id + '/edit.json', user);
   };
