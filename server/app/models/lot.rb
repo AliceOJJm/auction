@@ -36,7 +36,7 @@ class Lot < ActiveRecord::Base
   end
 
   def update_price(bid_price)
-    updated_price = if raising? then current_price + bid_price else current_price - bid_price end
+    updated_price = if raising? then bid_price else current_price - bid_price end
     update(current_price: updated_price)
   end
 end
