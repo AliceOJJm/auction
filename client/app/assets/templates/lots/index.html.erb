@@ -47,7 +47,7 @@
                         <div class="col-xs-6">
                             <label for="category_id"> Category: </label>
                             <select class="form-control" name="category_id" ng-model="lot.category_id">
-                              <option ng-repeat="category in categories" value="category.id">{{category.name}}</option>
+                              <option ng-repeat="category in categories" value={{category.id}}>{{category.name}}</option>
                             </select><br>
                         </div>
                     </div>

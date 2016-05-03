@@ -3,7 +3,9 @@ class BidsController < ApplicationController
 
   # GET /bids.json
   def index
-    @bids = Bid.all
+    @bids = Bid.all.select{ |bid|
+      bid.lot_id.to_s == params[:lot_id]
+    }
   end
 
   # GET /bids/1.json
