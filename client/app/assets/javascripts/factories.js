@@ -526,6 +526,7 @@ angular.module('boo-factories').factory('lots', ['$http',
 	function($http){
 		var o = {
 			all: [],
+      participants: [],
 			current: {}
 		};
 
@@ -546,6 +547,12 @@ angular.module('boo-factories').factory('lots', ['$http',
 				callback(res.id);
 			});
 		};
+
+    o.getParticipants = function(id){
+      return $http.get(window.host + '/lots/'+ id +'/participants.json').success(function(res){
+        angular.copy(res, o.participants);
+      });
+    }
 
 		return o;
 	}]);
@@ -573,6 +580,14 @@ angular.module('boo-factories').factory('bids', ['$http', 'Notification', functi
       }
     })
   }
+
+  o.getAuthor = function(participants, bid){
+    var findUser = function(user){
+      return user.user.id == bid.user_id;
+    }
+    return participants.find(findUser,bid);
+  }
+
   return o;
 }]);
 

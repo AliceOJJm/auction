@@ -759,8 +759,9 @@ angular.module('boo-controllers').controller('LotCtrl', [
 	'$scope', 'lots', 'Auth', 'bids','users',
 	function($scope, lots, Auth, bids, users){
     $scope.lot = lots.current;
+    $scope.lots = lots;
     $scope.users = users.all;
-    $scope.bids = bids.all;
+    $scope.bids = bids;
     $scope.bid = {
 		lot_id: $scope.lot.id 
  	};
@@ -773,7 +774,7 @@ angular.module('boo-controllers').controller('LotCtrl', [
     		this.labels.push("");
     	}
     };
-    $scope.bids.forEach(function(bid)
+    $scope.bids.all.forEach(function(bid)
 		{
 			$scope.chart.data[0].unshift(bid.price);
 			$scope.chart.labels.unshift("");

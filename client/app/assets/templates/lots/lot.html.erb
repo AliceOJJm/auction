@@ -18,7 +18,7 @@
 		</div>
 		<div class="panel-body">
 			<timeline>
-				<timeline-event ng-repeat="bid in bids" side="alternate">
+				<timeline-event ng-repeat="bid in bids.all" side="alternate">
 				  <timeline-badge class="success" ng-if="bid.is_final == 0">
 				      <i class="glyphicon glyphicon-check"></i>
 				  </timeline-badge>
@@ -30,8 +30,20 @@
 				          <h4><b>Price: {{bid.price}}</b></h4>
 				      </timeline-heading>
 				      <div class="row">
-				          <div class="col-sm-4">
-				              id: {{bid.user_id}}
+				          <div class="col-sm-12">
+					          <label>
+			          			  Author: 
+			          			    <div ng-switch on="bid.is_hidden">
+									    <div ng-switch-when="true">
+										     Anonymous
+									    </div>
+									    <div ng-switch-default>
+									    	<a href="/id{{bids.getAuthor(lots.participants, bid).user.id}}">
+							          			{{bids.getAuthor(lots.participants, bid).user.first_name}}
+					          		        </a>
+									    </div>
+									</div>
+					          </label>
 				          </div>
 				      </div>
 				  </timeline-panel>

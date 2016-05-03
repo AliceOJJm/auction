@@ -332,9 +332,12 @@ function($stateProvider, $urlRouterProvider, $locationProvider) {
 		  postPromise: ['$stateParams', 'lots', function($stateParams, lots) {
 			  return lots.get($stateParams.id);
 		  }],
-	      allBids: ['$stateParams', 'bids', function($stateParams, bids) {
-	        return bids.getAll($stateParams.id);
-	      }]
+      allBids: ['$stateParams', 'bids', function($stateParams, bids) {
+        return bids.getAll($stateParams.id);
+      }],
+      allParticipants: ['$stateParams', 'lots', function($stateParams, lots) {
+        return lots.getParticipants($stateParams.id);
+      }]
 	  }
 	});
 }]);
