@@ -550,7 +550,7 @@ angular.module('boo-factories').factory('lots', ['$http',
 		return o;
 	}]);
 
-angular.module('boo-factories').factory('bids', ['$http', function($http) {
+angular.module('boo-factories').factory('bids', ['$http', 'Notification', function($http, Notification) {
   var o = {
     all: []
   }
@@ -565,10 +565,11 @@ angular.module('boo-factories').factory('bids', ['$http', function($http) {
     return $http.post(window.host + '/lots/' + lotId + '/bids.json', bid).then(function(res) {
       o.getAll(lotId);
       callback(res);
+      Notification.success("Bid was successfully added");
     },
     function(res) {
       if(res.status == 422) {
-        // TODO notify user about fail
+        Notification.danger("Error");
       }
     })
   }

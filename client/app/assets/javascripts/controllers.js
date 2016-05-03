@@ -790,5 +790,6 @@ angular.module('boo-controllers').controller('LotCtrl', [
       bids.create($scope.bid, $scope.lot.id, function(res) {
       	$scope.chart.update_data($scope.bid);
       });
+      lots.get($scope.lot.id);
     }
 	}]);
