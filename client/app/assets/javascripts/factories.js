@@ -557,13 +557,13 @@ angular.module('boo-factories').factory('bids', ['$http', function($http) {
 
   o.getAll = function(lotId) {
     return $http.get(window.host + '/lots/' + lotId + '/bids.json').success(function(res) {
-      angular.copy(res, o.all);
+      angular.copy(res.reverse(), o.all);
     })
   };
 
   o.create = function(bid, lotId, callback) {
     return $http.post(window.host + '/lots/' + lotId + '/bids.json', bid).then(function(res) {
-      o.getAll();
+      o.getAll(lotId);
       callback(res);
     },
     function(res) {
