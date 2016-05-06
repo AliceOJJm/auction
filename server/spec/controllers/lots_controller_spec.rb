@@ -52,13 +52,6 @@ RSpec.describe LotsController, type: :controller do
     end
   end
 
-  describe "GET #new" do
-    it "assigns a new lot as @lot" do
-      get :new, {}, valid_session
-      expect(assigns(:lot)).to be_a_new(Lot)
-    end
-  end
-
   describe "GET #edit" do
     it "assigns the requested lot as @lot" do
       lot = Lot.create! valid_attributes

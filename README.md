@@ -3,6 +3,7 @@ Rails-api server + AngularJS client auction social network app
 
 
 To launch:
+
 You need to install Solr search engine
 
 scp server/config/environments/test.rb.sample server/config/environments/test.rb
@@ -16,7 +17,9 @@ bundle install
 rake db:setup
 
 cd server && rake sunspot:solr:start
+
 cd server && rails s
+
 cd client && rails s -p 2000
 
 localhost:2000

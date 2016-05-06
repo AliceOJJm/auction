@@ -34,7 +34,7 @@ gem 'angular_rails_csrf'
 gem "paperclip"
 gem 'aws-sdk', '< 2.0'
 
-group :development do
+group :development, :test do
   gem 'sunspot_rails'
   gem 'sunspot_solr'
 end

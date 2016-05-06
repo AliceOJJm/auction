@@ -52,13 +52,6 @@ RSpec.describe BidsController, type: :controller do
     end
   end
 
-  describe "GET #new" do
-    it "assigns a new bid as @bid" do
-      get :new, {}, valid_session
-      expect(assigns(:bid)).to be_a_new(Bid)
-    end
-  end
-
   describe "GET #edit" do
     it "assigns the requested bid as @bid" do
       bid = Bid.create! valid_attributes

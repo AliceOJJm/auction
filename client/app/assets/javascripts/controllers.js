@@ -11,6 +11,8 @@ angular.module('boo-controllers').controller('UserpageCtrl', [
 function($scope, Auth, Upload, Notification, Lightbox, users, posts, audio, videos, comments, mail){
   Auth.currentUser().then(function (user){
   	$scope.current_user = user.user;
+    $scope.user = users.user;
+    $scope.can_manage = ($scope.current_user.id == $scope.user.user.id);
     $scope.$watch('avatar', function () {
       $scope.uploadAvatar($scope.avatar, $scope.current_user.id);
     });
@@ -19,8 +21,6 @@ function($scope, Auth, Upload, Notification, Lightbox, users, posts, audio, vide
   $scope.openLightboxModal = function (index) {
 	  Lightbox.openModal($scope.last_pictures, index);
 	};
-	
-	$scope.user = users.user;
 	
 	$scope.number_of_friendship_requests = users.userpage_media.number_of_friendship_requests;
 	$scope.last_pictures = users.userpage_media.last_pictures;

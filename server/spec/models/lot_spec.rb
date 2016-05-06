@@ -12,6 +12,7 @@
 #  updated_at     :datetime         not null
 #  title          :string(255)
 #  description    :text(65535)
+#  lot_type       :integer          default("1"), not null
 #
 
 require 'rails_helper'
