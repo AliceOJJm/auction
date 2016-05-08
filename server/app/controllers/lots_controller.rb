@@ -3,7 +3,7 @@ class LotsController < ApplicationController
 
   # GET /lots.json
   def index
-    @lots = Lot.all
+    @lots = Lot.where('expires_at > ?', DateTime.now.in_time_zone('UTC'))
   end
 
   # GET /lots/1.json

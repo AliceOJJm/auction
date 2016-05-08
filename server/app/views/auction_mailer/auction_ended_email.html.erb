@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta content='text/html; charset=UTF-8' http-equiv='Content-Type' />
+  </head>
+  <body>
+    <h1>Hi <%= @user.name %></h1>
+    <p>
+      Happy to announce, that auction on <%= @lot.title %> has ended.
+      <% if @winner.present? %>
+        But unfortunately no bids were applied. 
+      <% else %>
+        And the winner is <%= link_to @winner.first_name + ' ' + @winner.last_name, user_url(@winner) %> 
+        Contact him to fiish the deal.
+      <% end %>
+      Lot has been archieved.
+    </p>
+  </body>
+</html>
