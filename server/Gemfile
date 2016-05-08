@@ -37,6 +37,7 @@ gem 'aws-sdk', '< 2.0'
 group :development, :test do
   gem 'sunspot_rails'
   gem 'sunspot_solr'
+  gem 'railroady'
 end
 
 gem 'ruby-mp3info', require: 'mp3info'
